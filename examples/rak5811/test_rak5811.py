@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Reads values from a 4-20mA sensor using a RAK5801 module
+Reads values from a 0-5v sensor using a RAK5811 module
 """
 __copyright__ = "Copyright 2021, RAKwireless"
 __license__ = "GPL"
@@ -20,7 +20,7 @@ ANALOG_INPUT_0 	= 0
 ANALOG_INPUT_1 	= 1
 SAMPLE_NUM		= 32
 """
-reading rak5801 analog input via ads115 module 
+reading rak5811 analog input via ads115 module 
 """
 adc = Adafruit_ADS1x15.ADS1115(address=I2C_ADDRESS, busnum=I2C_BUS)
 try:
@@ -37,9 +37,9 @@ try:
 		it's at or higher than the maximum voltage value for the current gain (4.096V by default),
 		"""
 		voltage = raw * 4.096 / 32767;
-		#I=U/149.9(mA)
-		current = voltage / 149.9 * 1000;  
-		print("%.2f mA"%current)
+		#Input signal reduced to 6/10 and output
+		raw_voltage = voltage / 0.6 
+		print("%.2f v"%raw_voltage)
 
 except KeyboardInterrupt:
     logging.info('ctrl + c:')
