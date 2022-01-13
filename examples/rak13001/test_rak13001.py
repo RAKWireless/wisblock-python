@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Reads values from a 4-20mA sensor using a RAK5801 module
+Turns on and off the relay in the RAK13001
 """
 __copyright__ = "Copyright 2021, RAKwireless"
 __license__ = "GPL"
@@ -15,7 +15,9 @@ from smbus2 import SMBus
 
 I2C_ADDR 	= 0x20
 I2C_BUS 	= 1
-IO2_2   	= 18 
+IO2_1		= 17
+IO2_2   	= 18
+OC_PIN		= IO2_1 
 RELAY_PIN	= IO2_2
 
 bus = SMBus(I2C_BUS)
@@ -70,3 +72,5 @@ try:
 except KeyboardInterrupt:
     logging.info('ctrl + c:')
     exit()
+
+
