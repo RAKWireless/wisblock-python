@@ -15,9 +15,9 @@ from smbus2 import SMBus
 
 I2C_ADDR 	= 0x20
 I2C_BUS 	= 1
-IO2_1		= 17
+IO2_0		= 16
 IO2_2   	= 18
-OC_PIN		= IO2_1 
+OC_PIN		= IO2_0 
 RELAY_PIN	= IO2_2
 
 bus = SMBus(I2C_BUS)
@@ -30,31 +30,31 @@ def clear_bit(value, bit):
 	return value & ~(1 << bit)
 
 def set_high(pin):
-	write_value = bus.read_i2c_block_data(I2C_ADDR, 0, 3)
-	#print(write_value)
+	#write_value = bus.read_i2c_block_data(I2C_ADDR, 0, 3)
+	write_value = [0x0, 0x0, 0x0]
 	
 	if pin in range(0, 8):
-		write_value[0] = set_bit((write_value[0]), 7 - pin)
+		write_value[0] = set_bit((write_value[0]), pin)
 	elif pin in range(8, 16):
-		write_value[1] = set_bit((write_value[1]), 15 - pin)
-	elif pin in range(16, 25):
-		write_value[2] = set_bit((write_value[2]), 23 - pin)
+		write_value[1] = set_bit((write_value[1]), pin - 8)
+	elif pin in range(16, 24):
+		write_value[2] = set_bit((write_value[2]), pin - 16)
 
-	#print(write_value)
+	print(write_value)
 	bus.write_i2c_block_data(I2C_ADDR, 0, write_value)
 
 def set_low(pin):
-	write_value = bus.read_i2c_block_data(I2C_ADDR, 0, 3)
-	#print(write_value)
+	#write_value = bus.read_i2c_block_data(I2C_ADDR, 0, 3)
+	write_value = [0xff, 0xff, 0xff]
 
 	if pin in range(0, 8):
-		write_value[0] = clear_bit((write_value[0]), 7 - pin)
+		write_value[0] = clear_bit((write_value[0]), pin)
 	elif pin in range(8, 16):
-		write_value[1] = clear_bit((write_value[1]), 15 - pin)
-	elif pin in range(16, 25):
-		write_value[2] = clear_bit((write_value[2]), 23 - pin)
+		write_value[1] = clear_bit((write_value[1]), pin - 8)
+	elif pin in range(16, 24):
+		write_value[2] = clear_bit((write_value[2]), pin - 16)
 
-	#print(write_value)
+	print(write_value)
 	bus.write_i2c_block_data(I2C_ADDR, 0, write_value)
 
 try:
@@ -72,5 +72,4 @@ try:
 except KeyboardInterrupt:
     logging.info('ctrl + c:')
     exit()
-
 
