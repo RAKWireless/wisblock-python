@@ -8,7 +8,19 @@ __version__ = "1.0.0"
 __status__ = "Production"
 
 import time
+from smbus2 import SMBus
 import Adafruit_PCA9685	
+
+
+I2C_ADDR    = 0x20
+I2C_BUS     = 1
+
+bus = SMBus(I2C_BUS)
+#active LOW output enable for PCA9685 OE PIN
+write_value = [0x0, 0x0, 0x0]
+bus.write_i2c_block_data(I2C_ADDR, 0, write_value)
+
+
 
 # Initialise the PCA9685 using the default address (0x40).
 pwm = Adafruit_PCA9685.PCA9685()
