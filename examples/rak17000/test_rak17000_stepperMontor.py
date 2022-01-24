@@ -7,6 +7,7 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __status__ = "Production"
 
+import sys
 import time
 import RPi.GPIO as GPIO
 from smbus2 import SMBus
@@ -17,6 +18,10 @@ MOTOR_AIN2 = 24
 MOTOR_BIN1 = 16 #gpio expender io2_2
 MOTOR_BIN2 = 19
 
+
+bus = SMBus(1)
+write_value = [0xff, 0xff, 0xff]
+bus.write_i2c_block_data(0x20, 0, write_value)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -43,22 +48,22 @@ def phaseA():
 	GPIO.output(MOTOR_BIN2, GPIO.LOW)
 
 def phaseB():
-    GPIO.output(MOTOR_AIN1, GPIO.LOW)
-    GPIO.output(MOTOR_AIN2, GPIO.HIGH)
-    set_bin1(GPIO.LOW)
-    GPIO.output(MOTOR_BIN2, GPIO.LOW)
+	GPIO.output(MOTOR_AIN1, GPIO.LOW)
+	GPIO.output(MOTOR_AIN2, GPIO.HIGH)
+	set_bin1(GPIO.LOW)
+	GPIO.output(MOTOR_BIN2, GPIO.LOW)
 
 def phaseC():
-    GPIO.output(MOTOR_AIN1, GPIO.LOW)
-    GPIO.output(MOTOR_AIN2, GPIO.LOW)
-    set_bin1(GPIO.HIGH)
-    GPIO.output(MOTOR_BIN2, GPIO.LOW)
+	GPIO.output(MOTOR_AIN1, GPIO.LOW)
+	GPIO.output(MOTOR_AIN2, GPIO.LOW)
+	set_bin1(GPIO.HIGH)
+	GPIO.output(MOTOR_BIN2, GPIO.LOW)
 
 def phaseD():
-    GPIO.output(MOTOR_AIN1, GPIO.LOW)
-    GPIO.output(MOTOR_AIN2, GPIO.LOW)
-    set_bin1(GPIO.LOW)
-    GPIO.output(MOTOR_BIN2, GPIO.HIGH)
+	GPIO.output(MOTOR_AIN1, GPIO.LOW)
+	GPIO.output(MOTOR_AIN2, GPIO.LOW)
+	set_bin1(GPIO.LOW)
+	GPIO.output(MOTOR_BIN2, GPIO.HIGH)
 
 try:
 	while True:
