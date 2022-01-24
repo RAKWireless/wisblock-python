@@ -38,9 +38,9 @@ pwm.set_pwm_freq(60)
 #    Long leg goes to PWM pin on channel 0
 
 while True:
-	for i in range(0, 4096):
+	for i in range(0, 4096, 40):
 		pwm.set_pwm(0, 0, i)
 
-	for i in range(0, 4096):
+	for i in range(0, 4096, 40):
 		pwm.set_pwm(0, 0, 4095-i)
 
