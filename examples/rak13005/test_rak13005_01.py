@@ -99,7 +99,7 @@ if __name__ == '__main__' :
 
 	#set EN pin and WK pin to high 
 	bus = SMBus(I2C_BUS)
-	write_value = [0xff, 0xff, 0xff]
+	write_value = [0xef, 0xff, 0xff]
 	bus.write_i2c_block_data(I2C_ADDR, 0, write_value)
 	
 	
