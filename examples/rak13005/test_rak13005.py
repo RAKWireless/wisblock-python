@@ -49,14 +49,14 @@ class LinBus:
 		return pid
 
 	def validateParity(self, ident):
-		if self._ident == protectID(ident):
+		if self._ident == self.protectID(ident):
 			return True
 		else:
 			return False				
 
 	def validateChecksum(self, data, size):
 		chk = 0x00
-		pid = protectID(data[1])	
+		pid = self.protectID(data[1])	
 		checksum = data[size-1]
 			 
 		if not ((self._version == 1) or (pid == 0x3C) or (pid == 0x7D)):
@@ -86,14 +86,17 @@ class LinBus:
 			
 		if self._gHead2 != 0x55:
 			return None
-		if not validateParity(ident[0]):
+		
+		if not self.validateParity(data[0]):
+			print("invalid data Parity")
 			return None
 		 
-		if validateChecksum(data, size+3):					
+		if self.validateChecksum(data, size+3):					
 			for i in range(0, size):
 				print("%d" % data[i+2],end=" ")
 			print("")
-
+		else:
+			print("invalid data checksum")
 
 if __name__ == '__main__' :
 
