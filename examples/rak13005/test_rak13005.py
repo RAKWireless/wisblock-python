@@ -28,12 +28,11 @@ class LinBus:
 		self._wkPin = wkPin
 		self._enPin = enPin
 		self._txPin = txPin
-		self._ident = 0;
+		self._ident = 0x1;
 		self._baudRate = 0
 		self._baudRateTmp = 0
 		self._serial = None
-		self._gHead1 = 0x55
-		self._gHead2 = 0
+
 	def slave(self, baudRate, ident):
 		self._baudRate = baudRate
 		self._ident = ident
@@ -49,19 +48,19 @@ class LinBus:
 		return pid
 
 	def validateParity(self, ident):
-		if self._ident == self.protectID(ident):
+		if ident == self.protectID(self._ident):
 			return True
 		else:
 			return False				
 
 	def validateChecksum(self, data, size):
 		chk = 0x00
-		pid = self.protectID(data[1])	
+		pid = self.protectID(self._ident)	
 		checksum = data[size-1]
 			 
 		if not ((self._version == 1) or (pid == 0x3C) or (pid == 0x7D)):
 			chk = pid
-		for i in range(2, size):
+		for i in range(0, size-1):
 			chk += data[i]
 			if chk > 255:
 				chk -= 255
@@ -73,30 +72,38 @@ class LinBus:
 			return False
 	
 	def read(self, size):
-		if self._serial.inWaiting() > (size+3):
-			self._gHead2 = self._gHead1
-			string = self._serial.read(size+3)
-			data =  numpy.fromstring(string, dtype=numpy.uint8)
-			for i in range(0, size+3):
+		#check frame headr: break byte, sync byte and protected id byte.
+		if self._serial.inWaiting() > 3:
+			break_field = self._serial.read(1)			
+			if ord(break_field) != 0:
+				return
+
+			sync_field = self._serial.read(1)
+			if ord(sync_field) != 0x55:
+				return
+
+			pid = self._serial.read(1)
+			if not self.validateParity(ord(pid)):
+				print("error:invalid data Parity")
+				return		
+		else:
+			return
+		
+		# read data and checksum, the last byte is checksum. 		 
+		if self._serial.inWaiting() > size+1:
+			string = self._serial.read(size+1)
+			data = numpy.frombuffer(string, dtype=numpy.uint8)
+		else:
+			print("no enough data!")
+			return None	
+		 
+		if self.validateChecksum(data, size+1):
+			print("recieve:", end="")	
+			for i in range(0, size):
 				print("%d" % data[i],end=" ")
 			print("")
 		else:
-			print("no data!")
-			return None			
-			
-		if self._gHead2 != 0x55:
-			return None
-		
-		if not self.validateParity(data[0]):
-			print("invalid data Parity")
-			return None
-		 
-		if self.validateChecksum(data, size+3):					
-			for i in range(0, size):
-				print("%d" % data[i+2],end=" ")
-			print("")
-		else:
-			print("invalid data checksum")
+			print("error: invalid data checksum")
 
 if __name__ == '__main__' :
 
@@ -111,4 +118,4 @@ if __name__ == '__main__' :
 
 	while True:
 		linbus.read(8)
-		time.sleep(1)
+		time.sleep(0.5)
