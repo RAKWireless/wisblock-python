@@ -61,8 +61,8 @@ def write_value(name, value):
         bus.write_i2c_block_data(0x20, 0, value)
 
 #active LOW output enable for PCA9685 OE PIN
-write_value("IO2_6", 0)
-write_value("IO2_7", 0)
+write_value("IO1_6", 0)
+write_value("IO1_7", 0)
 
 
 
@@ -82,9 +82,9 @@ pwm.set_pwm_freq(60)
 #    Long leg goes to PWM pin on channel 0
 
 while True:
-	for i in range(0, 4096, 40):
+	for i in range(0, 4096, 10):
 		pwm.set_pwm(0, 0, i)
 
-	for i in range(0, 4096, 40):
+	for i in range(0, 4096, 10):
 		pwm.set_pwm(0, 0, 4095-i)
 
