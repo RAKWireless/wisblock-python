@@ -57,9 +57,12 @@ def cb():
 	timer.start()
 
 
-
-serial = i2c(port=1, address=0x3c)
-device = ssd1306(serial)
+try:
+    serial = i2c(port=1, address=0x3c)
+    device = ssd1306(serial)
+except Exception:
+    print("can not find oled device.")
+    sys.exit()
 
 timer = threading.Timer(1, cb)
 timer.start()
