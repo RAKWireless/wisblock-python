@@ -7,6 +7,7 @@ import sys
 import threading
 import netifaces
 import psutil
+import re
 
 
 def cb():
@@ -14,30 +15,14 @@ def cb():
 	info = ""
 	#get interface ipv4 address
 	ifaces = netifaces.interfaces()
-
-	if 'eth0' in ifaces:
-		eth0 = netifaces.ifaddresses('eth0')
-		ipv4 = eth0.get(netifaces.AF_INET)
-
-		if ipv4 != None:
-			addr = ipv4[0]['addr'] 
-			info += "IP:%s\n"%addr
-
-	if 'eth1' in ifaces:
-		eth1 = netifaces.ifaddresses('eth1')
-		ipv4 = eth1.get(netifaces.AF_INET)
-
-		if ipv4 != None:
-			addr = ipv4[0]['addr']
-			info += "IP:%s\n"%addr
-	
-	if 'wlan0' in ifaces:
-		wlan0 = netifaces.ifaddresses('wlan0')
-		ipv4 = wlan0.get(netifaces.AF_INET)
-
-		if ipv4 != None:
-			addr = ipv4[0]['addr']
-			info += "IP:%s\n"%addr
+	pattern = "^bond.*|^[ewr].*|^lt.*|^umts.*|^lan.*"
+	for iface in ifaces:
+		if re.match(pattern, iface):
+			ifaddres = netifaces.ifaddresses(iface)
+			ipv4 = ifaddres.get(netifaces.AF_INET)
+			if ipv4:
+				addr = ipv4[0]['addr']
+				info += "IP:%s\n"%addr
 	
 	#get cpu percent
 	cpu = psutil.cpu_percent(None)
