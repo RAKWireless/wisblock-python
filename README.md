@@ -4,7 +4,7 @@ A collection of examples to interface [WisBlock](https://github.com/RAKWireless/
 
 # Hardware requirement
 
-To be able to use the WisBlock module, the hardware must match the WisBlock form factor. Right now, RAKwireless provides two hardware to support the WisBlock module for the Raspberry Pi platform. 
+To be able to use the WisBlock module, the hardware must match the WisBlock form factor. Right now, RAKwireless provides two devices to support the WisBlock module for the Raspberry Pi platform. 
 
 ## RAK7391
 
@@ -23,14 +23,13 @@ Copyright (c) 2022 RAKwireless, under MIT License.
 The repository structure follows that on the [RAKwireless store](https://store.rakwireless.com/pages/wisblock)
 
 * Display
+    * [RAK1921 OLED Display](/examples/oled)
 * Interface
-    * RAK5802
-    * ...
-* Sensor
-    * RAK1901
-    * ...
-* Other
-    * ADS1115 Analog-to-Digital Converter
-    * PI4IOE5V96224 GPIO Expander
-    * ...
-
+    * [RAK5801 4-20mA Sensor](/examples/rak5801)
+    * [RAK5802 RS485 Interface](/examples/rak5802)
+    * [RAK5811 0-5V Sensor](/examples/rak5811)
+    * [RAK13001 Relay](/examples/rak13001)
+    * [RAK13004 PWM Module](/examples/rak13004)
+    * [RAK13005 LINbus Interface](/examples/rak13005)
+    * [RAK16001 ADC Module](/examples/rak16001)
+    * [RAK17000 Motor Driver](/examples/rak17000)
