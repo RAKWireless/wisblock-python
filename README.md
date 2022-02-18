@@ -23,13 +23,13 @@ Copyright (c) 2022 RAKwireless, under MIT License.
 The repository structure follows that on the [RAKwireless store](https://store.rakwireless.com/pages/wisblock)
 
 * Display
-    * [RAK1921 OLED Display](/examples/oled)
+    * [RAK1921 OLED Display](/display/rak1921)
 * Interface
-    * [RAK5801 4-20mA Sensor](/examples/rak5801)
-    * [RAK5802 RS485 Interface](/examples/rak5802)
-    * [RAK5811 0-5V Sensor](/examples/rak5811)
-    * [RAK13001 Relay](/examples/rak13001)
-    * [RAK13004 PWM Module](/examples/rak13004)
-    * [RAK13005 LINbus Interface](/examples/rak13005)
-    * [RAK16001 ADC Module](/examples/rak16001)
-    * [RAK17000 Motor Driver](/examples/rak17000)
+    * [RAK5801 4-20mA Sensor](/interface/rak5801)
+    * [RAK5802 RS485 Interface](/interface/rak5802)
+    * [RAK5811 0-5V Sensor](/interface/rak5811)
+    * [RAK13001 Relay](/interface/rak13001)
+    * [RAK13004 PWM Module](/interface/rak13004)
+    * [RAK13005 LINbus Interface](/interface/rak13005)
+    * [RAK16001 ADC Module](/interface/rak16001)
+    * [RAK17000 Motor Driver](/interface/rak17000)
