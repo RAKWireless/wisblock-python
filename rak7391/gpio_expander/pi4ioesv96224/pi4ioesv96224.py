@@ -11,7 +11,7 @@ from smbus2 import SMBus, i2c_msg
 
 GPIOE_BUS = 1
 GPIOE_ADDRESS = 0x20
-GPIOE_LAZY = False
+GPIOE_LAZY = True
 
 class GPIOExpander:
 
@@ -36,12 +36,12 @@ class GPIOExpander:
         self.values = list(msg)
 
     def read(self, port, pin):
-        if not self.lazy:
+        if self.lazy:
             self.sync()
         return (self.values[port] >> pin) & 0x01
 
     def write(self, value, port, pin):
-        if not self.lazy:
+        if self.lazy:
             self.sync()
         if value:
             self.values[port] |= (1 << pin)
