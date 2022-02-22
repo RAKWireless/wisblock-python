@@ -54,17 +54,6 @@ For details about how Channel Selections bits and Power-Down bits are set, pleas
 
 In the example code, we set the ADS7830 to Single-Ended mode. PD1 is set to 0 and PD0 is set to 1, which means the internal reference is OFF and A/D converter is ON. Since we are only using channel 1, we set C2-C0 to 000. 
 
-The code for the WisBlock sensor is split into methods:
-
-* **setup**: Arduino setup code, initializes all the required hardware (debug serial, modbus, SHTC3 and LED)
-* **loop**: Arduino loop, runs forever
-* **modbus_setup**: enables RAK5802, starts serial communication and sets up coil (LED) and registries
-* **modbus_loop**: checks for incomming packets and updates coil (LED)
-* **shtc3_setup**: sensor initialization
-* **shtc3_read**: reads the sensor and populates registries
-* **led_setup**: LED initialization
-* **led_set**: sets the LED on or off
-
 ### 3.2. Example Code
 
 The example code can be found in the [rak16001_read.py](rak16001_read.py) file. In order to run this you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create a isolated environment. To install `virtualenv` you just have to:
