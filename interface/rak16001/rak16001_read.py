@@ -8,33 +8,27 @@ __version__ = "1.0.0"
 __status__ = "Production"
 __maintainer__ = "rakwireless.com"
 
-# Distributed with a free-will license. Use it any way you want, profit or free, provided it fits in the licenses of
-# its associated works. ADS7830 This code is designed to config ADS7830 ADC device and handle the data, ADS7830 is
-# available from ControlEverything.com. https://www.controleverything.com/content/Analog-Digital-Converters?sku
-# =ADS7830_I2CADC
-
 import smbus2 as smbus
 import time
 
 # Get I2C bus
 bus = smbus.SMBus(1)
 
-# Send command byte
-#               0x04(04)        Differential inputs, Channel-0, Channel-1 selected
 # The address of ADS7830 can be changed making the option of connecting multiple devices
-# address=0x48    # 0x48, 1001 000 (ADDR = GND)
-# address=0x49    #0x49, 1001 001 (ADDR = VDD)
-address = 0x4a  # 0x4A, 1001 010 (ADDR = SDA)
-# address=0x4b    # 0x4B, 1001 011 (ADDR = SCL)
+# address=0x48    # 0x48, 1001 000
+# address=0x49    # 0x49, 1001 001
+address=0x4A    # 0x4A, 1001 010
+# address=0x4B    # 0x4B, 1001 011
 
-# The command byte determines ADS7830's operating mode, check https://www.ti.com/lit/ds/symlink/ads7830.pdf table 1
-# and table 2 for more details.
+# The command byte determines ADS7830's operating mode,
+# check https://www.ti.com/lit/ds/symlink/ads7830.pdf table 1 and table 2 for more details.
 # The command byte have 3 parts: Single-Ended/Differential Inputs, Channel Selections, and Power-Down
-# 1. SD: Single-Ended/Differential Inputs
+
+# 1. SD: Single-Ended/Differential Inputs (Table 2)
 # sd = '0'  # Differential Inputs
 sd = '1'  # Single-Ended Inputs
 
-# 2. C2 - C0: Channel Selections
+# 2. C2 - C0: Channel Selections (Table 2)
 channel = '000'  # Single-Ended, Channel 0
 # channel = '001'  # Single-Ended, Channel 1
 # channel = '010'  # Single-Ended, Channel 2
@@ -44,25 +38,35 @@ channel = '000'  # Single-Ended, Channel 0
 # channel = '110'  # Single-Ended, Channel 6
 # channel = '111'  # Single-Ended, Channel 7
 
-# 3. PD1: Power-Down Selection
+# 3. PD1-0: Power-Down Selection (Table 1)
 # pd = '00'  # Power Down Between A/D Converter Conversions
 pd = '01'  # Internal Reference OFF and A/D Converter ON
 # pd = '10'  # Internal Reference ON and A/D Converter OFF
 # pd = '11'  # Internal Reference ON and A/D Converter ON
 
+# Build the command byte
+command_byte = int(sd + channel + pd + '00', 2)
 
-command_byte = hex(int((sd + channel + pd + '00'), 2))
+# Reference voltage
+ref_vol = 3.3
+
 try:
     while True:
-        bus.write_byte(address, int(command_byte, 16))
+        
+        # Send command to read one byte from given channel
+        bus.write_byte(address, command_byte)
         time.sleep(0.5)
-        # Read data back, 1 byte
         raw_data = bus.read_byte(address)
-        # reference voltage is 3 Volts
-        measurement = raw_data * 3 / 255
+
+        # Transform into actual voltage
+        measurement = raw_data * ref_vol / 255
+        
         # Output data to screen
         print("Digital value of analog input : %.2f V" % measurement)
+        
+        # Do this every second
         time.sleep(1)
+
 except KeyboardInterrupt:
     print("Keyboard interrupt, exit")
     exit()
