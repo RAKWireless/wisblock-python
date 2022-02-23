@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Reads values from a 4-20mA sensor using a RAK5801 module
+Reads values from a analog input using the RAK16001 module
 """
-__copyright__ = "Copyright 2021, RAKwireless"
+__copyright__ = "Copyright 2022, RAKwireless"
 __license__ = "GPL"
 __version__ = "1.0.0"
 __status__ = "Production"
@@ -13,7 +13,7 @@ __maintainer__ = "rakwireless.com"
 # available from ControlEverything.com. https://www.controleverything.com/content/Analog-Digital-Converters?sku
 # =ADS7830_I2CADC
 
-import smbus
+import smbus2 as smbus
 import time
 
 # Get I2C bus
