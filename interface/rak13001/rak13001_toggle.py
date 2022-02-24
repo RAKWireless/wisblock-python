@@ -9,41 +9,30 @@ __status__ = "Production"
 __maintainer__ = "rakwireless.com"
 
 import time
-import sys
-import logging
-from smbus2 import SMBus
+from pi4ioesv96224.pi4ioesv96224 import GPIOExpander
 
-I2C_ADDR 	= 0x20
-I2C_BUS 	= 1
-IO2_0		= 16
-IO2_2   	= 18
-OC_PIN		= IO2_0 
-RELAY_PIN	= IO2_2
+HIGH = 1
+LOW  = 0
 
-bus = SMBus(I2C_BUS)
+#the relay pin connect to IO2_2 when use wisblock slot#1
+#if you want use slot#2, please change PIN valuse to 3(IO2_3)
+PORT = 2
+PIN  = 2
 
+gpioe = GPIOExpander()
 
-def set_high():
-	write_value = [0xff, 0xff, 0xff]
-	bus.write_i2c_block_data(I2C_ADDR, 0, write_value)
-
-def set_low():
-	write_value = [0x0, 0x0, 0x0]
-	bus.write_i2c_block_data(I2C_ADDR, 0, write_value)
-
-try:
-	count = 0
+def run_toggle():
+	#Loop
 	while True:
-		if count % 2 == 0:
-			set_low()
-			print("turn off")
-		else:
-			set_high()
-			print("turn on")
-		count += 1
-		time.sleep(0.5)
+		#Set relay pin to low
+		gpioe.write(LOW, PORT, PIN)
+		time.sleep(1)
+		#Set relay pin to high
+		gpioe.write(HIGH, PORT, PIN)
+		time.sleep(1)
 
-except KeyboardInterrupt:
-    logging.info('ctrl + c:')
-    exit()
+if __name__ == "__main__":
+	run_toggle()
+			
+
 
