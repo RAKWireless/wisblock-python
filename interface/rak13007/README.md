@@ -1,10 +1,10 @@
-# Toggle a RAK13001 WisBlock Relay IO Module
+# Toggle a RAK13007 WisBlock Relay IO Module
 
 [TOC]
 
 ## 1.Introduction
 
-This guide explains how to use the [WisBlock IO RAK13001](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13001/Overview/) in combination with RAK6421 Wisblock Hat or RAK7391 WisGate Developer Connect to interface an Relay module device through Python. 
+This guide explains how to use the [WisBlock IO RAK13007](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13007/Overview/) in combination with RAK6421 Wisblock Hat or RAK7391 WisGate Developer Connect to interface an Relay module device through Python. 
 
 ### 1.1 Relay
 
@@ -13,19 +13,19 @@ A **Relay** is an electrically operated switch. It consists of a set of input te
 
 ### 2.1. IO hardware
 
-In this example we will only need to connect RAK13001 to the high-density connector located on RAK6421 Wisblock Hat or RAK7391 WisGate Developer Connect. For more information about **RAK13001**, refer to the [Datasheet](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13001/Datasheet/).
+In this example we will only need to connect RAK13007 to the high-density connector located on RAK6421 Wisblock Hat or RAK7391 WisGate Developer Connect. For more information about **RAK13007**, refer to the [Datasheet](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13007/Datasheet/).
 
 - RAK13001 WisBlock Realy IO Module
 
-![RAK13001](assets/RAK13001.jpg)
+![RAK13007](assets/RAK13007.jpg)
 
 ### 2.2. Other hardware
 
-You will need a couple of cables, a LED and a external 5v battery to connect RAK13001's DO pins.
+You will need a couple of cables, a LED and a external 5v battery to connect RAK13007's DO pins.
 
 ### 2.3. Connection diagram
 
-In the following figure, we show you how to  use the RAK13001 relay for switching applications. You can connect any module to the RAK13001 as long as it operates on its recommended voltage rating.
+In the following figure, we show you how to  use the RAK13007 relay for switching applications. You can connect any module to the RAK13007 as long as it operates on its recommended voltage rating.
 
 
 
@@ -41,7 +41,7 @@ The example code can be found in the [rak13001_toggle.py](rak13001_toggle.py) fi
 sudo apt install virtualenv
 ```
 
-Once installed you can create the environment and install the dependencies (run this on the `rak13001` folder):
+Once installed you can create the environment and install the dependencies (run this on the `rak13007` folder):
 
 ```
 virtualenv .env
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 Once installed you can run the example by typing:
 
 ```
-python rak13001_toggle.py
+python rak13007_toggle.py
 ```
 
 After that you can leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.
