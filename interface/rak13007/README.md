@@ -17,7 +17,7 @@ In this example we will only need to connect RAK13007 to the high-density connec
 
 - RAK13001 WisBlock Realy IO Module
 
-![RAK13007](assets/RAK13007.jpg)
+<img src="assets/RAK13007.jpg" alt="WisBlock Relay IO RAK13007" style="zoom:50%;" />
 
 ### 2.2. Other hardware
 
@@ -29,7 +29,7 @@ In the following figure, we show you how to  use the RAK13007 relay for switchin
 
 
 
-<img src="assets/setup.png" alt="Connections" style="zoom: 67%;" />
+<img src="assets/setup.png" alt="Connections" style="zoom: 50%;" />
 
 ## 3. Software
 
