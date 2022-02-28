@@ -15,6 +15,7 @@ ads1115 using an I2C communication bus
 '''
 ADS1115_BUS = 0x1
 ADS1115_ADDRESS = 0x48
+ADS1115_MAX = 32767
 
 '''
 set a gain of 1 for reading voltages from 0 to 4.09V.
@@ -27,20 +28,24 @@ Or pick a different gain to change the range of voltages that are read:
   -  16 = +/-0.256V
 '''
 ADS1115_GAIN = 1
+ADS1115_GAIN_REF = 4.096
 ADS1115_CHANNEL = 0
-SAMPLE_NUM = 32
+DELAY_SEC = 1
 
 # Create an ADS1115 ADC (16-bit) instance.
 
 adc = Adafruit_ADS1x15.ADS1115(address=ADS1115_ADDRESS, busnum=ADS1115_BUS)
 
-for i in range(0, SAMPLE_NUM):
-	'''
-	This value is a number that ranges from -32768 to 32767 on the 16-bit ADS1115,
-    A value of 0 means the signal is at a ground (reference) level, 32767  means 
-    it's at or higher than the maximum voltage value for the current gain.
-	'''
-	value = adc.read_adc(ADS1115_CHANNEL, gain=ADS1115_GAIN)
-	print(value)
-	time.sleep(0.5)
+try:
+    while True:
+        '''
+        This value is a number that ranges from -32768 to 32767 on the 16-bit ADS1115,
+        A value of 0 means the signal is at a ground (reference) level, 32767  means 
+        it's at or higher than the maximum voltage value for the current gain.
+        '''
+        value = adc.read_adc(ADS1115_CHANNEL, gain=ADS1115_GAIN) * ADS1115_GAIN_REF / ADS1115_MAX
+        print("Reading: {:.2f}V".format(value))
+        time.sleep(DELAY_SEC)
+except KeyboardInterrupt:
+    None
 

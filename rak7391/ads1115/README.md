@@ -10,20 +10,24 @@ This guide explain how to read a specified ads1115 channel on the rak7391 with p
 
 ## 2. Libray & Example
 
-ADS1115 use the an I2C communication protocol to read analog values and there is an existing python library [Adafruit ADS1x15 Python library](https://github.com/adafruit/Adafruit_Python_ADS1x15)  You can install the library from the Python package index with `pip` command.
+ADS1115 use the an I2C communication protocol to read analog values and there is an existing python library [Adafruit ADS1x15 Python library](https://github.com/adafruit/Adafruit_Python_ADS1x15). You can install the library from the Python package index with `pip` command.
 
-the example code can be found in the [ads1115_read.py](ads1115_read.py) file, you can change some parameters to a proper value. 
+```
+pip install -r requirements.txt
+```
 
-### i2c parameters
+The example code can be found in the [ads1115_read.py](ads1115_read.py) file, you can change some parameters to a proper value. It read the analog value from ADS1115 port 0 every second and output it. The example is meant to be used with a trimpot that outputs a value from 0 to 3.3V.
 
-the i2c address of ads1115 on the rak7391 is 0x48 and the i2c bus index is 1 by default.
+### I2C parameters
+
+The i2c address of ads1115 on the rak7391 is 0x48 and the i2c bus index is 1 by default.
 
 ```
 ADS1115_BUS = 0x1
 ADS1115_ADDRESS = 0x48
 ```
 
-### adc parameters
+### ADC parameters
 
 **channel**-there are 4 input channels on the ads1115, the channel number is from 0 to 3.
 
@@ -40,7 +44,11 @@ ADS1115_ADDRESS = 0x48
 
 `ADS1115_GAIN = 1`
 
-**value** - the read value is a number that ranges from -32768 to 32767 on the 16-bit ADS1115, a value of 0 means the signal is at a ground (reference) level, 32767  means it's at or higher than the maximum voltage value for the current gain.
+**reference** - the reference voltage for that specific gain, so if you are selecting gain 1 above set the reference voltage to 4.096:
+
+`ADS1115_GAIN_REF = 4.096`
+
+**value** - the read value is a number that ranges from -32768 to 32767 on the 16-bit ADS1115, a value of 0 means the signal is at a ground (reference) level, 32767 means it's at or higher than the maximum voltage value for the current gain.
 
 `value = adc.read_adc(ADS1115_CHANNEL, gain=ADS1115_GAIN)`
 
