@@ -36,7 +36,7 @@ In the following figure, we show you how RAK16000 is connected to RAK7391 board 
 
 <img src="assets/rak16000_connection.png" alt="Connections" style="zoom: 67%;" />
 
-Notice that if you want to add a multimeter to the circuit above, you need to connected it in series with the VIN+ pin on RAK16000. For example, cut the red cable used to connected the power supply and the VIN+ pin (highlighted in green in above figure), and then connect you multimeter in series. 
+You can connect RAK16000 to either slot 1 or slot 2 on RAK7391 board. Notice that if you want to add a multimeter to the circuit above, you need to connected it in series with the VIN+ pin on RAK16000. For example, cut the red cable used to connected the power supply and the VIN+ pin (highlighted in green in above figure), and then connect you multimeter in series. 
 
 ## 3. Software
 
