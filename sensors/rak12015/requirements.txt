@@ -1,0 +1,4 @@
+Adafruit-ADS1x15==1.0.2
+Adafruit-GPIO==1.0.3
+Adafruit-PureIO==1.1.9
+spidev==3.5
