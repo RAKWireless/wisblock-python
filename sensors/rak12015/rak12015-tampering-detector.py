@@ -1,14 +1,3 @@
-#!/usr/bin/env python3
-"""
-Read the specified ADC channel using the set gain value，
-and monitor whether the vibration sensor (RAK12015) is triggered.
-"""
-
-__copyright__ = "Copyright 2022, RAKwireless"
-__license__ = "GPL"
-__version__ = "0.1.0"
-__status__ = "Production"
-
 import time
 import Adafruit_ADS1x15
 from datetime import datetime
@@ -53,9 +42,9 @@ try:
         # Reading value close to 0 means there is no vibration
         # While non-zero values indicates that a vibration is detected
         if value == 0:
-            print("All good")
+            print('%.2f' % value, "-All good")
         else:
-            print("ALERT", system_time, "Vibration detected!")
+            print('%.2f' % value, "-ALERT", system_time, "Vibration detected!")
         time.sleep(DELAY_SEC)
 except KeyboardInterrupt:
     None
