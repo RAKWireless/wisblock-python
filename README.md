@@ -31,5 +31,14 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK13001 Relay](/interface/rak13001)
     * [RAK13004 PWM Module](/interface/rak13004)
     * [RAK13005 LINbus Interface](/interface/rak13005)
+    * [RAK13007 Relay IO Module](/interface/rak13007)   
     * [RAK16001 ADC Module](/interface/rak16001)
     * [RAK17000 Motor Driver](/interface/rak17000)
+* RAK7391
+    * [ads1115 example](/rak7391/ads1115)
+    * [gpio expander](/rak7391/gpio_expander)
+* Sensors
+    * [RAK12015 example](/sensors/rak12015)
+    * [RAK16000 example](/sensors/rak16000)
+
+
