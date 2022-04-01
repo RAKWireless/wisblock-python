@@ -67,7 +67,7 @@ class ADC121C021:
     def read_configure_register(self):
         return self._bus.read_byte_data(self._addr, REG_CONFIGURATION)
 
-    def config_automatic_conversion_mode(self, cycle_time):
+    def config_cycle_time(self, cycle_time):
         tmp = self.read_configure_register() & 0x1f
         tmp = tmp | cycle_time
         self._bus.write_byte_data(self._addr, REG_CONFIGURATION, tmp)
@@ -220,7 +220,7 @@ class MQ2(ADC121C021):
 '''
 if __name__ == '__main__' :
     mq2 = MQ2()
-    mq2.config_automatic_conversion_mode(CYCLE_TIME_32)
+    mq2.config_cycle_time(CYCLE_TIME_32)
     mq2.set_slope(SMOKE_SLOPE)
     mq2.set_intercept_y(SMOKE_INTERCEPT_Y)
     mq2.calibrate_Ro()

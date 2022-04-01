@@ -59,7 +59,7 @@ class ADC121C021:
     def read_configure_register(self):
         return self._bus.read_byte_data(self._addr, REG_CONFIGURATION)
 
-    def config_automatic_conversion_mode(self, cycle_time):
+    def config_cycle_time(self, cycle_time):
         tmp = self.read_configure_register() & 0x1f
         tmp = tmp | cycle_time
         self._bus.write_byte_data(self._addr, REG_CONFIGURATION, tmp)
@@ -173,7 +173,7 @@ class ADC121C021:
 '''
 if __name__ == '__main__' :
     adc = ADC121C021()
-    adc.config_automatic_conversion_mode(CYCLE_TIME_32)
+    adc.config_cycle_time(CYCLE_TIME_32)
     time.sleep(0.5)
     while True:
         print(adc.read_adc_voltage())

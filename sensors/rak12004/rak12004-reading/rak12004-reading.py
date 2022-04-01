@@ -27,7 +27,7 @@ time.sleep(0.5)
 
 sensor = mq2.MQ2()
 
-sensor.config_automatic_conversion_mode(mq2.CYCLE_TIME_32)
+sensor.config_cycle_time(mq2.CYCLE_TIME_32)
 #in this example, we test ppm of smoke.
 sensor.set_slope(mq2.SMOKE_SLOPE)
 sensor.set_intercept_y(mq2.SMOKE_INTERCEPT_Y)
