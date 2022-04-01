@@ -43,7 +43,7 @@ time.sleep(0.5)
 
 while True:
     voltage = adc.read_adc_voltage()
-    print("Reading: {:.2f}V".format(ppm))
+    print("Reading: {:.2f}V".format(voltage))
     time.sleep(0.5)
 ```
 
