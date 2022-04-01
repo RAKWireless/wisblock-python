@@ -44,7 +44,7 @@ The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io
 sudo apt install virtualenv
 ```
 
-Once installed you can create the environment and install the dependencies (run this on the `rak12015` folder):
+Once installed you can create the environment and install the dependencies (run this on the `rak1906/rak1906-read-all` folder):
 
 ```
 virtualenv .env

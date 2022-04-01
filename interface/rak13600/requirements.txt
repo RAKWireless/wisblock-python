@@ -1,0 +1,1 @@
+adafruit-circuitpython-pn532==2.3.7
