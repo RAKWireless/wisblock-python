@@ -15,10 +15,11 @@ I2C_ADDRESS = 0x51
 
 VOLTAGE_REF = 5.0
 RL = 10
-RO = 11.2
-RATIO_AIR = 9.6
-SMOKE_SLOPE = -0.399
-SMOKE_INTERCEPT_Y = 1.22
+MQ2_RO = 11.2
+MQ2_RATIO_AIR = 9.6
+MQ2_RATIO_AIR = 4.4
+MQ2_SMOKE_SLOPE = -0.399
+MQ2_SMOKE_INTERCEPT_Y = 1.22
 
 
 
@@ -179,7 +180,7 @@ class ADC121C021:
         return voltage
 
 
-class MQ2(ADC121C021):
+class MQx(ADC121C021):
 
     def set_slope(self, value):
         self._slope = value
@@ -195,7 +196,7 @@ class MQ2(ADC121C021):
     the resistance ratio in air is a constant: Rs / Ro = 9.6
     so we can calibrate Ro in an air environment 
     '''
-    def calibrate_Ro(self, ratio_air=RATIO_AIR):
+    def calibrate_Ro(self, ratio_air):
         total = 0
         for i in range(100):
             total += self.read_adc_voltage()
@@ -219,11 +220,11 @@ class MQ2(ADC121C021):
 
 '''
 if __name__ == '__main__' :
-    mq2 = MQ2()
+    mq2 = MQx()
     mq2.config_cycle_time(CYCLE_TIME_32)
-    mq2.set_slope(SMOKE_SLOPE)
-    mq2.set_intercept_y(SMOKE_INTERCEPT_Y)
-    mq2.calibrate_Ro()
+    mq2.set_slope(MQ2_SMOKE_SLOPE)
+    mq2.set_intercept_y(MQ2_SMOKE_INTERCEPT_Y)
+    mq2.calibrate_Ro(MQ2_RATIO_AIR)
     while True:
         print(mq2.calibrate_ppm())
         time.sleep(5)
