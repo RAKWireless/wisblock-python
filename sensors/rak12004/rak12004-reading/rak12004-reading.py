@@ -27,16 +27,16 @@ time.sleep(0.5)
 
 mq2 = mqx.MQx()
 
-mq2.config_cycle_time(mq2.CYCLE_TIME_32)
+mq2.config_cycle_time(mqx.CYCLE_TIME_32)
 #in this example, we test ppm of smoke.
-mq2.set_slope(mq2.MQ2_SMOKE_SLOPE)
-mq2.set_intercept_y(mq2.MQ2_SMOKE_INTERCEPT_Y)
+mq2.set_slope(mqx.MQ2_SMOKE_SLOPE)
+mq2.set_intercept_y(mqx.MQ2_SMOKE_INTERCEPT_Y)
 
 # we have calibrated Ro value in our envirenment.
-mq2.set_Ro(mq2.MQ2_RO)
+mq2.set_Ro(mqx.MQ2_RO)
 
 #you also can recalibrate Ro with method: calibrate_Ro
-#sensor.calibrate_Ro(mq2.MQ2_RATIO_AIR)
+#sensor.calibrate_Ro(mqx.MQ2_RATIO_AIR)
 try:
     while True:
         ppm = mq2.calibrate_ppm()
