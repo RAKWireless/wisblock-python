@@ -10,16 +10,26 @@ import smbus
 import time
 import math
 
+#i2c
 I2C_BUS = 0x1
-I2C_ADDRESS = 0x51
+I2C_ADDRESS_MQ2 = 0x51
+I2c_ADDRESS_MQ3 = 0x55
 
+#adc
 VOLTAGE_REF = 5.0
 RL = 10
+
+#MQ-2
 MQ2_RO = 11.2
 MQ2_RATIO_AIR = 9.6
-MQ2_RATIO_AIR = 4.4
 MQ2_SMOKE_SLOPE = -0.399
 MQ2_SMOKE_INTERCEPT_Y = 1.22
+
+#MQ-3
+MQ3_RO = 0.65
+MQ3_RATIO_AIR = 62
+MQ3_ALCOHOL_SLOPE = -0.651
+MQ3_ALCOHOL_INTERCEPT_Y = -0.27
 
 
 
@@ -61,7 +71,7 @@ CYCLE_TIME_1024 = 0xC0
 CYCLE_TIME_2048 = 0xE0
 
 class ADC121C021:
-    def __init__(self, bus=I2C_BUS, addr=I2C_ADDRESS):
+    def __init__(self, bus, addr):
         self._bus = bus = smbus.SMBus(bus)
         self._addr = addr
 
@@ -220,7 +230,7 @@ class MQx(ADC121C021):
 
 '''
 if __name__ == '__main__' :
-    mq2 = MQx()
+    mq2 = MQx(bus=I2C_BUS, addr=I2C_ADDRESS_MQ2)
     mq2.config_cycle_time(CYCLE_TIME_32)
     mq2.set_slope(MQ2_SMOKE_SLOPE)
     mq2.set_intercept_y(MQ2_SMOKE_INTERCEPT_Y)
