@@ -25,7 +25,7 @@ GPIO.setup(EN_PIN, GPIO.OUT)
 GPIO.output(EN_PIN, GPIO.HIGH)
 time.sleep(0.5)
 
-mq2 = mqx.MQx()
+mq2 = mqx.MQx(bus=mqx.I2C_BUS, addr=mqx.I2C_ADDRESS_MQ2)
 
 mq2.config_cycle_time(mqx.CYCLE_TIME_32)
 #in this example, we test ppm of smoke.
