@@ -8,9 +8,9 @@
 
 The **MQ-2 Gas sensor** can detect or measure gasses like LPG, Alcohol, Propane, Hydrogen, CO, and even methane. the module version of this sensor comes with a Digital Pin which makes this sensor to operate even without a microcontroller and that comes in handy when you are only trying to detect one particular gas. when it comes to measuring the gas in ppm the analog pin has to be used, the analog pin also TTL driven and works on 5V and hence can be used with most common microcontrollers.
 
-### 1.2.MQ-3
+### 1.2.MQ-3B
 
-MQ-3  is suitable for detecting Alcohol, Benzine, CH4, Hexane, LPG, CO. Sensitive material of MQ-3 gas sensor is SnO2, which with lower conductivity in clean air. when the target alcohol gas exist, the sensor’s conductivity is more higher along with the gas concentration rising. MQ-3 gas sensor has high sensitity to Alcohol, and has good resistance to disturb of gasoline, smoke and vapor.
+MQ-3B gas sensor has high sensitivity to alcohol gas and can resistant to the interference of gasoline, smoke and vapour. It is with low cost and suitable for various applications of detecting alcohol at different concentration. for more details, you can refer to [MQ-3B datasheet](docs/MQ-3B.pdf)
 
 ### 1.3.ADC121C021
 
@@ -45,7 +45,7 @@ The `class MQ-x` offers methods , which convert voltage to ppm by some mathemati
 
 detailed calculation method can be referred to:[How Do Gas Sensors Work](https://jayconsystems.com/blog/understanding-a-gas-sensor)
 
-- **calibrate_Ro** we can get the sensitivity characteristics graph from [MQ-2](docs/MQ-2.pdf) and [MQ-3](docs/MQ-3.pdf) datasheet.  we can see the resistance ratio in air is a constant, so we can calibrate Ro in an air environment
+- **calibrate_Ro** we can get the sensitivity characteristics graph from [MQ-2](docs/MQ-2.pdf) and [MQ-3B](docs/MQ-3B.pdf) datasheet.  we can see the resistance ratio in air is a constant, so we can calibrate Ro in an air environment
 
 - **calibrate_ppm** in the sensitivity characteristics graph, we will treat the lines as if they were linear, so we can use one formula that linearly relates the ratio and the concentration.`self._slope` is slope of the line, `self._intercept_y` is the intercept of Y coordinate. you can calibrate them from the sensitivity characteristics graph for each gas.
 
@@ -55,17 +55,17 @@ detailed calculation method can be referred to:[How Do Gas Sensors Work](https:/
 from mqx import mqx
 import time
 
-mq2 = mqx.MQx()
-mq2.config_cycle_time(mq2.CYCLE_TIME_32)
+mq2 = mqx.MQx(bus=mqx.I2C_BUS, addr=mqx.I2C_ADDRESS_MQ2)
+mq2.config_cycle_time(mqx.CYCLE_TIME_32)
 
 #in this example, we test ppm of smoke.
-mq2.set_slope(mq2.MQ2_SMOKE_SLOPE)
-mq2.set_intercept_y(mq2.MQ2_SMOKE_INTERCEPT_Y)
+mq2.set_slope(mqx.MQ2_SMOKE_SLOPE)
+mq2.set_intercept_y(mqx.MQ2_SMOKE_INTERCEPT_Y)
 
 # we have calibrated Ro value in our envirenment.
-mq2.set_Ro(mq2.MQ2_RO)
+mq2.set_Ro(mqx.MQ2_RO)
 #you also can recalibrate Ro with method: calibrate_Ro
-#sensor.calibrate_Ro(mq2.MQ2_RATIO_AIR)
+#mq2.calibrate_Ro(mqx.MQ2_RATIO_AIR)
 
 try:
     while True:
