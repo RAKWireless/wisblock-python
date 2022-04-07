@@ -62,9 +62,7 @@ The example script provided is packed as a command line interface for users to i
 
   The expected output should be like (the output varies depending on values stored in the EEPROM):
 
-  ```
-  18
-  ```
+  <img src="assets/read-one.png" alt="read a signed address"/>
 
 - read continuous addresses:
 
