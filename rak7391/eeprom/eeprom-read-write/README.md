@@ -36,11 +36,6 @@ source .env/bin/activate
 pip install -r requirements.txt
 ```
 
-Once installed you can run the example by typing:
-
-```plaintext
-python eeprom-read-write.py
-```
 
 The example script provided is packed as a command line interface for users to interact with the EEPROM. Here are some command lines for users to get start:
 
