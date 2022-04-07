@@ -31,7 +31,7 @@ class CAT24C32:
         data = list(msg)
         return data
 
-usage = "./test_eeprom [options] [address] <[address]>"
+usage = "./eeprom-read-write.py [options] [address] <[address]>"
 parser = OptionParser(usage=usage)
 
 parser.add_option("-a", "--address", type = "int", action="store", dest="address", default=0x50, help="Address of the CAT24C32 in the bus (defaults to 0x50)")
