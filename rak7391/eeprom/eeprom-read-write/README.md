@@ -22,7 +22,7 @@ The EEPROM chip CAT24C32 is soldered on RAK7391, thus users don't need to do any
 
 ## 3. Example Code
 
-The example code can be found in the [eeprom-read-write.py.py]() file. In order to run this you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create a isolated environment. To install `virtualenv` you just have to:
+The example code can be found in the [./eeprom-read-write.py]() file. In order to run this you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create a isolated environment. To install `virtualenv` you just have to:
 
 ```plaintext
 sudo apt install virtualenv
