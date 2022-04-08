@@ -38,7 +38,11 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [ads1115 example](/rak7391/ads1115)
     * [gpio expander](/rak7391/gpio_expander)
 * Sensors
+    * [RAK12004 example](/sensors/rak12004)
+    * [RAK12009 example](/sensors/rak12009)
     * [RAK12015 example](/sensors/rak12015)
     * [RAK16000 example](/sensors/rak16000)
+    * [RAK1901 example](/sensors/rak1901)
+    * [RAK1906 example](/sensors/rak1906)
 
 
