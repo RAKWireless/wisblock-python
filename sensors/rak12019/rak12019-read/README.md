@@ -32,7 +32,7 @@ The RAK12019 can be mounted on any one of the four slots on top of the RAK6421 W
 
 ### 3.1. Basic configuration
 
-LTR-390UV-01 has a 7-bit slave address of 0x53, a read/write bit should be appended to the slave address by the master device to communicate with the device. The ALS_UVS_MEAS_RATE Register (Address: 0x40) is used to control ALS/UVS measurements resolution, gain settings and measurement rate. For details about how each register is configured, please check LTR-390UV-01's datasheet. in **ADS7830**'s [datasheet](https://optoelectronics.liteon.com/upload/download/DS86-2015-0004/LTR-390UV_Final_%20DS_V1%201.pdf). In the example code, LTR-390UV-01 is configured to run with the default configuration defined in the [Adafruit_CircuitPython_LTR390 library](https://github.com/adafruit/Adafruit_CircuitPython_LTR390) 
+LTR-390UV-01 has a 7-bit slave address of 0x53, a read/write bit should be appended to the slave address by the master device to communicate with the device. The ALS_UVS_MEAS_RATE Register (Address: 0x40) is used to control ALS/UVS measurements resolution, gain settings and measurement rate. For details about how each register is configured, please check LTR-390UV-01's datasheet. In the example code, LTR-390UV-01 is configured to run with the default configuration defined in the [Adafruit_CircuitPython_LTR390 library](https://github.com/adafruit/Adafruit_CircuitPython_LTR390) 
 
 ### 3.2. Example Code
 
