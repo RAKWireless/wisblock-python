@@ -26,7 +26,7 @@ In this example we need to connect RAK13003 to the high-density connector locate
 
 - RAK13003 WisBlock IO Expansion Module
 
-<img src="assets/RAK13003.png" alt="RAK12019" style="zoom: 33%;" />
+<img src="assets/RAK13003.png" alt="RAK13003" style="zoom: 33%;" />
 
 The RAK12019 can be mounted on either IO slot of the RAK6421 Wisblock Hat and RAK7391's Wisblock slot. For example, it can be mounted on J1 (slot B) on RAK6421 Wisblock Hat, as shown in the picture below. 
 
