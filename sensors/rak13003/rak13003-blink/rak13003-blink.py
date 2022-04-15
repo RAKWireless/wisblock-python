@@ -13,6 +13,23 @@ import board
 import busio
 import digitalio
 from adafruit_mcp230xx.mcp23017 import MCP23017
+import RPi.GPIO as GPIO
+
+# When mount RAK13003/14003 on slot 1 on RAK6421, reset pin is gpio 16
+# (board pin 36) on RaspberryPi's 40-pin header
+reset_pin = 16
+# When mount RAK13003/14003 on slot 1 on RAK6421, reset pin is gpio 24
+# (board pin 18) on RaspberryPi's 40-pin header
+# reset_pin = 24
+
+# Reset device first
+GPIO.setup(reset_pin, GPIO.OUT)
+GPIO.output(reset_pin, GPIO.HIGH)
+time.sleep(0.1)
+GPIO.output(reset_pin, GPIO.LOW)
+time.sleep(0.1)
+GPIO.output(reset_pin, GPIO.HIGH)
+time.sleep(0.1)
 
 # Initialize the I2C bus:
 i2c = busio.I2C(board.SCL, board.SDA)
