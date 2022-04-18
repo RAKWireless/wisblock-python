@@ -12,7 +12,7 @@ The **RAK13003** is an IO expansion module that can be mounted to IO slot of Wis
 
 ### 1.2. I2C protocol
 
-**I2C** (**Inter-Integrated Circuit**) is a synchronous, multi-controller/multi-target (controller/target), packet switched, single-ended, serial communication bus，it is widely used for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication. The ** MCP23017** utilized in RAK13003 supports the I2C serial bus, and it operates as a slave device on the I2C bus, its default address is 0x20.  The figure below sows its device addressing. By default A2, A1, and A0 are connected to ground. The address changes if you set any of the A0, A1, A2 # pins.
+**I2C** (**Inter-Integrated Circuit**) is a synchronous, multi-controller/multi-target (controller/target), packet switched, single-ended, serial communication bus，it is widely used for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication. The **MCP23017** utilized in RAK13003 supports the I2C serial bus, and it operates as a slave device on the I2C bus, its default address is 0x20.  The figure below sows its device addressing. By default A2, A1, and A0 are connected to ground. The address changes if you set any of the A0, A1, A2 # pins.
 
 <img src="assets/MCP23017-device-addressing.png" alt="MCP23017 device addressing" style="zoom: 70%;" />
 

@@ -18,7 +18,7 @@ import RPi.GPIO as GPIO
 # When mount RAK13003/14003 on slot 1 on RAK6421, reset pin is gpio 16
 # (board pin 36) on RaspberryPi's 40-pin header
 reset_pin = 16
-# When mount RAK13003/14003 on slot 1 on RAK6421, reset pin is gpio 24
+# When mount RAK13003/14003 on slot 2 on RAK6421, reset pin is gpio 24
 # (board pin 18) on RaspberryPi's 40-pin header
 # reset_pin = 24
 
