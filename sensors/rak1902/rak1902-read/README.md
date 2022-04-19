@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-This guide explains how to use the [WisBlock sensor RAK1902](https://store.rakwireless.com/products/rak1902-kps22hb-barometric-pressure-sensor?_pos=1&_sid=9a186c444&_ss=r) in combination with RAK6421 Pi-Hat to monitor environment using Python. 
+This guide explains how to use the [WisBlock sensor RAK1902](https://store.rakwireless.com/products/rak1902-kps22hb-barometric-pressure-sensor?_pos=1&_sid=9a186c444&_ss=r) in combination with RAK6421 Pi-Hat to monitor barometric pressure using Python. 
 
 ## 2. Hardware
 
