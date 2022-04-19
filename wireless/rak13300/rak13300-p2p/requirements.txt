@@ -1,0 +1,3 @@
+LoRaRF==1.3.0
+RPi.GPIO==0.7.1
+spidev==3.5
