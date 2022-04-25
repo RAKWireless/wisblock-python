@@ -1,3 +1,2 @@
-smbus2==0.4.1
-pi4ioesv96224==0.1.0
-
+gpiod==1.5.3
+smbus==1.1.post2
