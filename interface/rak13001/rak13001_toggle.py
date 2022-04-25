@@ -23,13 +23,13 @@ I2C_BUS = 1
 I2C_ADDRESS = 0x21
     
 chip = PCA95XX_GPIO(I2C_BUS, I2C_ADDRESS, 16) 			
-chip.setup(RELAY_PIN, PCA95XX_GPIO.OUT)
+chip.setup(WISBLOCK_RELAY_PIN, PCA95XX_GPIO.OUT)
 
 try:
     while True:
-        chip.output(RELAY_PIN, 0)
+        chip.output(WISBLOCK_RELAY_PIN, 0)
         time.sleep(5)
-        chip.output(RELAY_PIN, 1)
+        chip.output(WISBLOCK_RELAY_PIN, 1)
         time.sleep(5)
 except:
     print('ctrl + c:')
