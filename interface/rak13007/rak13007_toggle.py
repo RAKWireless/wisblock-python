@@ -9,30 +9,51 @@ __status__ = "Production"
 __maintainer__ = "rakwireless.com"
 
 import time
-from pi4ioesv96224.pi4ioesv96224 import GPIOExpander
+from PCA95XX import PCA95XX_GPIO
+import gpiod
 
-HIGH = 1
-LOW  = 0
+#if you mount rak13007 on the RAK7391 Wisblock Connecter, run the code below 
+I2C_BUS = 1
+I2C_ADDRESS = 0x21
 
-#the relay pin connect to IO2_2 when use wisblock slot#1
-#if you want use slot#2, please change PIN valuse to 3(IO2_3)
-PORT = 2
-PIN  = 2
+#if you use Wisblock Slot#1, relay pin number is 4, if you use Slot#2, change pin number to 12. 
+WISBLOCK_RELAY_PIN = 4
 
-gpioe = GPIOExpander()
+I2C_BUS = 1
+I2C_ADDRESS = 0x21
+    
+chip = PCA95XX_GPIO(I2C_BUS, I2C_ADDRESS, 16) 			
+chip.setup(WISBLOCK_RELAY_PIN, PCA95XX_GPIO.OUT)
 
-def run_toggle():
-	#Loop
-	while True:
-		#Set relay pin to low
-		gpioe.write(LOW, PORT, PIN)
-		time.sleep(1)
-		#Set relay pin to high
-		gpioe.write(HIGH, PORT, PIN)
-		time.sleep(1)
+try:
+    while True:
+        chip.output(WISBLOCK_RELAY_PIN, 0)
+        time.sleep(5)
+        chip.output(WISBLOCK_RELAY_PIN, 1)
+        time.sleep(5)
+except:
+    print('ctrl + c:')
+    exit()
 
-if __name__ == "__main__":
-	run_toggle()
-			
+#else if you use rak13007 with WisBlock Pi Hat, plese run the code below 
+ 
+'''
+#if you use IO Slot 1, relay pin number is 16, if you use IO Slot 2, change pin number to 24
+PI_HAT_RELAY_PIN = 16
 
+chip = gpiod.chip(0)
+line = chip.get_line(PI_HAT_RELAY_PIN)
+config = gpiod.line_request()
+config.request_type = gpiod.line_request.DIRECTION_OUTPUT
+line.request(config)
 
+try:
+    while True:
+        line.set_value(0)
+        time.sleep(5)
+        line.set_value(1)
+        time.sleep(5)
+except:
+    print('ctrl + c:')
+    exit()
+'''
