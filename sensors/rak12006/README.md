@@ -14,7 +14,7 @@ The **RAK12006** is a Pyroelectric Infrared Radial (PIR) module. It is designed 
 
 The RAK12006 module has a 40-pin WisConnector that is compatible to the WisBlock Base IO Slot. The pin order of the connector and the pinout definition is shown in the pinout schematic below.
 
-<img src="assets/rak12006.jpg" alt="RAK12006 Pinout Schematic" style="zoom: 70%;" />
+<img src="assets/RAK12006_Pinout_Schematic.jpg" alt="RAK12006 Pinout Schematic" style="zoom: 70%;" />
 
 
 
