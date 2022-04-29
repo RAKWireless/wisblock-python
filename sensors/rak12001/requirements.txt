@@ -1,0 +1,2 @@
+pyfingerprint==1.5
+gpiod==1.5.3
