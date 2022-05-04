@@ -36,7 +36,7 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK17000 Motor Driver](/interface/rak17000)
 * RAK7391
     * [ads1115 example](/rak7391/ads1115)
-    * [gpio expander](/rak7391/gpio_expander)
+    * [gpio expander](/rak7391/pi4ioesv962)
 * Sensors
     * [RAK1901 example](/sensors/rak1901)
     * [RAK1906 example](/sensors/rak1906)

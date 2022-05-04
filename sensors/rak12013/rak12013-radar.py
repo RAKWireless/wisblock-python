@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-detect motion with rak12016 rader sensor.
+Detect motion with rak12016 radar sensor.
 """
 __copyright__ = "Copyright 2021, RAKwireless"
 __license__ = "GPL"

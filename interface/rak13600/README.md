@@ -30,7 +30,7 @@ Firstly, connect RAK13600  to RAK7391 board.
 
 ## 3. Software
 
-The example code can be found in the [**nfc-read.py**](https://git.rak-internal.net/product-rd/gateway/wis-developer/rak7391/wisblock-python/-/tree/dev/interface/rak13600) file. In order to run this， you will first have to install some required modules. 
+The example code can be found in the [**rak13600-nfc-read.py**](https://git.rak-internal.net/product-rd/gateway/wis-developer/rak7391/wisblock-python/-/tree/dev/interface/rak13600) file. In order to run this， you will first have to install some required modules. 
 
 The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create an isolated environment. To install `virtualenv` you just have to:
 
@@ -49,7 +49,7 @@ pip install -r requirements.txt
 Once installed you can run the example by typing:
 
 ```
-python nfc-read.py
+python rak13600-nfc-read.py
 ```
 
 When a NFCard was placed on the antenna, the logs will be shown as follows.
