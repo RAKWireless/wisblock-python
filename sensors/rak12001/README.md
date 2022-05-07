@@ -41,6 +41,8 @@ We use slot A of RAK6421, so before test we  must add the line bellow to `/boot/
 ```
 enable_uart=1
 ```
+If you use raspberryPi OS, you should make sure there is no configuration about serial0 in `/boot/cmdline.tx`.
+![](assets/image-cmdline.png)
 
 Then reboot RAK7391.
 
