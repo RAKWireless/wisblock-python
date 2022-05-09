@@ -10,7 +10,7 @@ __maintainer__ = "rakwireless.com"
 
 import time
 from opt3001 import opt3001
-# opt3001 has 4 possible I2C address: 0x44, 0x45, 0x46, and 0x47. It is set to ox44 on RAK1903
+# opt3001 has 4 possible I2C address: 0x44, 0x45, 0x46, and 0x47. It is set to 0x44 on RAK1903
 address = 0x44
 
 opt = opt3001.OPT3001(address)
