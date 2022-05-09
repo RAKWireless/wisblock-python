@@ -67,10 +67,10 @@ Ambient light: 40.76 lux
 Ambient light: 40.77 lux
 Ambient light: 40.77 lux
 Ambient light: 40.75 lux
-Ambient light: 40.730000000000004 lux
+Ambient light: 40.73 lux
 Ambient light: 40.72 lux
 Ambient light: 40.75 lux
-Ambient light: 40.9 lux
+Ambient light: 40.90 lux
 Ambient light: 41.02 lux
 Ambient light: 41.12 lux
 Ambient light: 41.18 lux
