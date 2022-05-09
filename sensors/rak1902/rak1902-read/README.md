@@ -34,7 +34,7 @@ We can also connect RAK6421 to Raspberry pi 4B+.
 
 ## 3. Software
 
-The example code can be found in the [rak902-read.py](https://git.rak-internal.net/product-rd/gateway/wis-developer/rak7391/wisblock-python/-/tree/dev/sensors/rak1902/rak1902-read) file. In order to run this you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create an isolated environment. To install `virtualenv` you just have to:
+The example code can be found in the [rak1902-read.py](https://git.rak-internal.net/product-rd/gateway/wis-developer/rak7391/wisblock-python/-/tree/dev/sensors/rak1902/rak1902-read) file. In order to run this you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create an isolated environment. To install `virtualenv` you just have to:
 
 ```
 sudo apt install virtualenv
