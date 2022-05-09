@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-rak14006 rotary encoder example,outputs the position of the encoder and button press.
+RAK14006 rotary encoder example,outputs the position of the encoder and button press.
 """
 __copyright__ = "Copyright 2021, RAKwireless"
 __license__ = "GPL"
@@ -12,9 +12,9 @@ import gpiod
 from datetime import timedelta
 
 '''
-if you mount rak14006 on the PI-Hat IO slot 1, the Counter Clockwise(CCW) pin is 16 
+If you mount RAK14006 on the Pi-HAT(RAK6421) IO slot 1, the Counter Clockwise(CCW) pin is 16 
 and Clockwise(CW) pin is 12, Button Switch(SW) pin is 6. 
-If you use PI-HAT IO slot 2, change CCW_PIN to 24,  CW_PIN to 22, SW_PIN to 21.
+If you use mount RAK14006 to Pi-HAT(RAK6421) IO slot 2, change CCW_PIN to 24,  CW_PIN to 22, SW_PIN to 21.
 '''
 CCW_PIN = 16
 CW_PIN = 12
