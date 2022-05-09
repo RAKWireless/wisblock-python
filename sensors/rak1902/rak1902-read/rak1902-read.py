@@ -12,6 +12,7 @@ import time
 import board
 import adafruit_lps2x
 
+# Default I2C address is 0x5D, but for RAK1902，it is set to 0x5C
 _LPS2X_ADDRESS = 0x5C
 i2c = board.I2C()
 lps = adafruit_lps2x.LPS22(i2c, _LPS2X_ADDRESS)
