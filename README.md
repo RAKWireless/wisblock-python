@@ -32,10 +32,14 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK13004 PWM Module](/interface/rak13004)
     * [RAK13005 LINbus Interface](/interface/rak13005)
     * [RAK13007 Relay IO Module](/interface/rak13007)  
-    * [RAK13600 NFC Reader Module](/interface/rak13600)      
+    * [RAK13600 NFC Reader Module](/interface/rak13600)   
+    * [RAK14006 Rotary Input](/interface/rak14006)   
     * [RAK16001 ADC Module](/interface/rak16001)
     * [RAK17000 Motor Driver](/interface/rak17000)
 * RAK7391
+RAK14006
+Rotary Input
+
     * [ads1115  16-Bit ADC](/rak7391/ads1115)
     * [atecc608 Secure Element](/rak7391/atecc608)
     * [EEPROM](/rak7391/eeprom)
