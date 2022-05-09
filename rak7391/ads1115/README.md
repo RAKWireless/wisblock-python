@@ -10,10 +10,30 @@ This guide explain how to read a specified ads1115 channel on the rak7391 with p
 
 ## 2. Libray & Example
 
-ADS1115 use the an I2C communication protocol to read analog values and there is an existing python library [Adafruit ADS1x15 Python library](https://github.com/adafruit/Adafruit_Python_ADS1x15). You can install the library from the Python package index with `pip` command.
+ADS1115 use the an I2C communication protocol to read analog values and there is an existing python library [Adafruit ADS1x15 Python library](https://github.com/adafruit/Adafruit_Python_ADS1x15).The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create a isolated environment. To install `virtualenv` you just have to:
+
+```plaintext
+sudo apt install virtualenv
+```
+
+Once installed you can create the environment and install the dependencies (run this on the `ads1115` folder):
+
+```plaintext
+virtualenv .env
+source .env/bin/activate
+pip install -r requirements.txt
+```
+
+You can install the library from the Python package index with `pip` command.
 
 ```
 pip install -r requirements.txt
+```
+
+Once installed you can run the example by typing:
+
+```
+python ads1115_read.py
 ```
 
 The example code can be found in the [ads1115_read.py](ads1115_read.py) file, you can change some parameters to a proper value. It read the analog value from ADS1115 port 0 every second and output it. The example is meant to be used with a trimpot that outputs a value from 0 to 3.3V.
