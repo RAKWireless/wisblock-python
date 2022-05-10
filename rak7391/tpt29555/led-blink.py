@@ -13,6 +13,7 @@ import time
 
 # Assumes a PCA9555 with 16 GPIO's
 bus = 1
+# I2C address of the GPIO expander, can be 0x23 or 0x27 on RAK7391
 address = 0x27
 pinnum = 16
 pin = 7

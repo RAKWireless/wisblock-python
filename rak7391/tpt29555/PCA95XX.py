@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import smbus
+import smbus2
 
 # For the PCA 953X and 955X series, the chips with 8 GPIO's have these port numbers
 # The chips with 16 GPIO's have the first port for each type at double these numbers
@@ -32,7 +32,7 @@ class PCA95XX(object):
 
     def __init__(self, busnum, address, num_gpios):
         assert num_gpios >= 0 and num_gpios <= 16, "Number of GPIOs must be between 0 and 16"
-        self.bus = smbus.SMBus(busnum);
+        self.bus = smbus2.SMBus(busnum);
         self.address = address
         self.num_gpios = num_gpios
         if num_gpios <= 8:

@@ -16,7 +16,7 @@ Schematic diagram of LED and IO0_7 of TPT29555  in RAK7391 is showed as follows.
 
 ![image-20220302172023719](assets/image-schem.png)
 
-We used TPT29555 whose address is `0x27`.
+There are two TPT29555 comes with RAK7391, and their I2C address are `0x23`and `0x27`.
 
 
 
