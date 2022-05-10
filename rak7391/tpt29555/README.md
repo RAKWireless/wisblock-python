@@ -10,13 +10,13 @@ The RAK7391 has two 16 bits [TPT29555](docs/TPT29555.pdf) GPIO expander driven v
 
 ## 2. Hardware
 
-Since the LED and TPT29555  GPIO Expander used are all in RAK7391 board, we needn't to prepare other hardware except RAK7391.
+Since the LED and TPT29555  GPIO Expander used are all in RAK7391 board, we don't need to prepare other hardwares except RAK7391.
 
 Schematic diagram of LED and IO0_7 of TPT29555  in RAK7391 is showed as follows.
 
 ![image-20220302172023719](assets/image-schem.png)
 
-There are two TPT29555 comes with RAK7391, and their I2C address are `0x23`and `0x27`.
+RAK7391 comes with two TPT29555 chips soldered on board, and their I2C address are `0x23`and `0x27`.
 
 
 
