@@ -55,5 +55,27 @@ Once installed you can run the example by typing:
 ```
 python rak12019-read.py
 ```
+The result will be as below:
+```
+Measurement resolution is 16 bits
+Measurement gain is 3X
+Measurement delay is 100
 
-After that you can leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.
+UV: 0 		Ambient Light: 470
+UV: 0 		Ambient Light: 615
+UV: 0 		Ambient Light: 617
+UV: 0 		Ambient Light: 615
+UV: 0 		Ambient Light: 614
+UV: 0 		Ambient Light: 615
+UV: 0 		Ambient Light: 614
+UV: 0 		Ambient Light: 612
+UV: 0 		Ambient Light: 55
+UV: 0 		Ambient Light: 201
+UV: 0 		Ambient Light: 489
+UV: 0 		Ambient Light: 22
+UV: 0 		Ambient Light: 186
+UV: 0 		Ambient Light: 246
+UV: 0 		Ambient Light: 479
+UV: 0 		Ambient Light: 219
+```
+After that you can press ctrl+c to exit and then leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.
