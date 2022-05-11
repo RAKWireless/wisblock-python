@@ -65,5 +65,5 @@ Once installed you can run the example by typing:
 ```
 python rak13003-blink.py
 ```
-
+You will see the led conncted to RAK13003 is blinking with the frequency of 1 Hz for 5 seconds.
 After that you can leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.
