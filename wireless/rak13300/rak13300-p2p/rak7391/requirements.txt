@@ -1,0 +1,3 @@
+RPi.GPIO==0.7.1
+spidev==3.5
+gpiod==1.5.3
