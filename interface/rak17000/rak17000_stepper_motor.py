@@ -7,88 +7,89 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __status__ = "Production"
 
-import sys
 import time
 import RPi.GPIO as GPIO
-from smbus2 import SMBus
+import gpiod
 
+# RAK7391 IO Slot#1: NSLEEP = 6, AIN1 = 11, AIN2 = 8, BIN1 = 3, BIN2 = 10
+# RAK7391 IO Slot#2: NSLEEP = 14, AIN1 = 11, AIN2 = 7, BIN1 = 11, BIN2 = 10
+NSLEEP = 14
+AIN1 = 11
+AIN2 = 7
+BIN1 = 11
+BIN2 = 10
 
-MOTOR_AIN1 = 23
-MOTOR_AIN2 = 24
-MOTOR_BIN1 = 16 #gpio expender io2_2
-MOTOR_BIN2 = 19
-
-
-bus = SMBus(1)
-write_value = [0xff, 0xff, 0xff]
-bus.write_i2c_block_data(0x20, 0, write_value)
+# set nsleep pin to High
+chip = gpiod.chip(2)
+nsleep = chip.get_line(NSLEEP)
+config = gpiod.line_request()
+config.request_type = gpiod.line_request.DIRECTION_OUTPUT
+nsleep.request(config)
+nsleep.set_value(1)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-GPIO.setup(MOTOR_AIN1, GPIO.OUT)
-GPIO.setup(MOTOR_AIN2, GPIO.OUT)
-GPIO.setup(MOTOR_BIN2, GPIO.OUT)
+GPIO.setup(AIN1, GPIO.OUT)
+GPIO.setup(AIN2, GPIO.OUT)
+GPIO.setup(BIN2, GPIO.OUT)
 
-bus = SMBus(1)
+bin1 = chip.get_line(BIN1)
+bin1.request(config)
 
-def set_bin1(value):
-
-	if value == GPIO.HIGH:
-		write_value = [0xff, 0xff, 0xff]
-	else:
-		write_value = [0x0, 0x0, 0x0]
-
-	bus.write_i2c_block_data(0x20, 0, write_value)
 
 def phaseA():
-	GPIO.output(MOTOR_AIN1, GPIO.HIGH)
-	GPIO.output(MOTOR_AIN2, GPIO.LOW)
-	set_bin1(GPIO.LOW)
-	GPIO.output(MOTOR_BIN2, GPIO.LOW)
+    GPIO.output(AIN1, GPIO.HIGH)
+    GPIO.output(AIN2, GPIO.LOW)
+    bin1.set_value(0)
+    GPIO.output(BIN2, GPIO.LOW)
+
 
 def phaseB():
-	GPIO.output(MOTOR_AIN1, GPIO.LOW)
-	GPIO.output(MOTOR_AIN2, GPIO.HIGH)
-	set_bin1(GPIO.LOW)
-	GPIO.output(MOTOR_BIN2, GPIO.LOW)
+    GPIO.output(AIN1, GPIO.LOW)
+    GPIO.output(AIN2, GPIO.HIGH)
+    bin1.set_value(0)
+    GPIO.output(BIN2, GPIO.LOW)
+
 
 def phaseC():
-	GPIO.output(MOTOR_AIN1, GPIO.LOW)
-	GPIO.output(MOTOR_AIN2, GPIO.LOW)
-	set_bin1(GPIO.HIGH)
-	GPIO.output(MOTOR_BIN2, GPIO.LOW)
+    GPIO.output(AIN1, GPIO.LOW)
+    GPIO.output(AIN2, GPIO.LOW)
+    bin1.set_value(1)
+    GPIO.output(BIN2, GPIO.LOW)
+
 
 def phaseD():
-	GPIO.output(MOTOR_AIN1, GPIO.LOW)
-	GPIO.output(MOTOR_AIN2, GPIO.LOW)
-	set_bin1(GPIO.LOW)
-	GPIO.output(MOTOR_BIN2, GPIO.HIGH)
+    GPIO.output(AIN1, GPIO.LOW)
+    GPIO.output(AIN2, GPIO.LOW)
+    bin1.set_value(0)
+    GPIO.output(BIN2, GPIO.HIGH)
 
 try:
-	while True:
-		for i in range(0, 601):
-			phaseA()
-			time.sleep(0.007)
-			phaseB()
-			time.sleep(0.007)
-			phaseC()
-			time.sleep(0.007)
-			phaseD()
-			time.sleep(0.007)
-		time.sleep(0.2)
+    while True:
+        for i in range(0, 601):
+            phaseA()
+            time.sleep(0.007)
+            phaseB()
+            time.sleep(0.007)
+            phaseC()
+            time.sleep(0.007)
+            phaseD()
+            time.sleep(0.007)
+        time.sleep(0.2)
 
-		for i in range(0, 601):
-			phaseD()
-			time.sleep(0.007)
-			phaseC()
-			time.sleep(0.007)
-			phaseB()
-			time.sleep(0.007)
-			phaseA()
-			time.sleep(0.007)
-		time.sleep(0.2)
-				
+        for i in range(0, 601):
+            phaseD()
+            time.sleep(0.007)
+            phaseC()
+            time.sleep(0.007)
+            phaseB()
+            time.sleep(0.007)
+            phaseA()
+            time.sleep(0.007)
+        time.sleep(0.2)
+
 except KeyboardInterrupt:
-	pass
+    pass
+
 GPIO.cleanup()
