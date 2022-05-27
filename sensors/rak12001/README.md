@@ -28,7 +28,7 @@ RAK6421 is a pi-hat  for Raspberry pi 3B/4B or RAK7391 which has 4 sensor slots 
 
 Firstly, connect RAK12001  to RAK6421 board with `slot A`.  And then connect RAK6421 to RAK7391. 
 
-**Note:**   `slot B` and `slot C` which do not connect with serial port, and `slot D` connect with `/dev/ttyAMA0` which often be used for Bluetooth of RPi, so we'd better use `slot A` for RAK12001.
+**Note:**   `slot B` and `slot C` do not connect with serial port, and `slot D` connect with `/dev/ttyAMA0` which often be used for Bluetooth of RPi, so we'd better use `slot A` for RAK12001.
 
 <img src="assets/image-20220429122817514.png" alt="image-20220429122817514" style="zoom: 80%;" />	
 
