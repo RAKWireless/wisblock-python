@@ -4,7 +4,7 @@
 
 ## 1.Introduction
 
-This guide explains how to use the [WisBlock PWM Expander RAK13004](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13004/Overview/) in combination with RAK6421 WisBlock Hat or RAK7391 WisGate Developer Connect to control breathing LED using Python.
+This guide explains how to use the [WisBlock PWM Expander RAK13004](https://store.rakwireless.com/products/pwm-expansion-module-rak13004) in combination with RAK6421 WisBlock Hat or RAK7391 WisGate Developer Connect to control breathing LED using Python.
 
 ### 1.1. RAK13004
 
