@@ -7,17 +7,44 @@ __license__ = "GPL"
 __version__ = "0.1.0"
 __status__ = "Production"
 
-
-
-from mqx import mqx
 import time
 import RPi.GPIO as GPIO
+import math
+from adc121c021 import ADC121C021, CYCLE_TIME_32
 
-'''
-EN_PIN is enable pin for adc chip, must be pulled high before the reading
-if you use IO slot#1, the GPIO pin Number is 12, slot#2 is 22
-'''
+
+I2C_BUS = 0x1
+I2C_ADDRESS = 0x51
+VOLTAGE_REF = 5
+RL = 10
+RO = 11.2
+RATIO_AIR = 9.6
+SMOKE_SLOPE = -0.399
+SMOKE_INTERCEPT_Y = 1.45
+
+
+# EN_PIN is Power enable pin (active high)
+# RAK6421 IO Slot#1: EN_PIN = 12
+# RAK6421 IO Slot#2: EN_PIN = 22
 EN_PIN = 12
+
+def calibrate_Ro(adc, ratio_air):
+    total = 0
+    for i in range(100):
+        total += adc.read_adc_voltage()
+        volt = total / 100
+    Rs_air = VOLTAGE_REF * RL / volt - RL
+    Ro = Rs_air / ratio_air
+    return Ro
+
+
+def calculate_ppm(adc, Ro, intercept_y, slope):
+    volt = adc.read_adc_voltage()
+    Rs = VOLTAGE_REF * RL / volt - RL
+    ratio = Rs / Ro
+    ppm_log10 = (math.log10(ratio) - intercept_y) / slope
+    ppm = math.pow(10, ppm_log10)
+    return ppm
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -25,25 +52,14 @@ GPIO.setup(EN_PIN, GPIO.OUT)
 GPIO.output(EN_PIN, GPIO.HIGH)
 time.sleep(0.5)
 
-mq2 = mqx.MQx(bus=mqx.I2C_BUS, addr=mqx.I2C_ADDRESS_MQ2)
+adc = ADC121C021(bus=I2C_BUS, addr=I2C_ADDRESS)
+adc.config_cycle_time(CYCLE_TIME_32)
+ro = calibrate_Ro(adc, RATIO_AIR)
 
-mq2.config_cycle_time(mqx.CYCLE_TIME_32)
-#in this example, we test ppm of smoke.
-mq2.set_slope(mqx.MQ2_SMOKE_SLOPE)
-mq2.set_intercept_y(mqx.MQ2_SMOKE_INTERCEPT_Y)
-
-# we have calibrated Ro value in our envirenment.
-mq2.set_Ro(mqx.MQ2_RO)
-
-#you also can recalibrate Ro with method: calibrate_Ro
-#sensor.calibrate_Ro(mqx.MQ2_RATIO_AIR)
 try:
     while True:
-        ppm = mq2.calibrate_ppm()
+        ppm = calculate_ppm(adc, ro, SMOKE_INTERCEPT_Y, SMOKE_SLOPE)
         print("ppm: {:.2f}".format(ppm))
-        time.sleep(5)
-
+        time.sleep(1)
 except KeyboardInterrupt:
     None
-
-
