@@ -38,6 +38,10 @@ In the following figure, we show you how RAK16000 is connected to RAK7391 board 
 
 You can connect RAK16000 to either slot 1 or slot 2 on RAK7391 board. Notice that if you want to add a multimeter to the circuit above, you need to connected it in series with the VIN+ pin on RAK16000. For example, cut the red cable used to connected the power supply and the VIN+ pin (highlighted in green in above figure), and then connect you multimeter in series. 
 
+If you also need to measure the voltage of another load (not the board RAK7391 itself), make sure you the GND pin on RAK16000 share the same ground with the load(as shown below). When you want to measure the current,RAK16000 acts as a current meter, thus it has to be connected in series with the load; when you want to measure the voltage, RAK16000 acts as a voltage meter, thus the chip needs to be connected in parallel with the load. 
+
+<img src="assets/measure-voltage.jpg" alt="Connections" style="zoom: 67%;" />
+
 ## 3. Software
 
 ### 3.1. Chip configuration
@@ -66,6 +70,25 @@ Once installed you can run the example by typing:
 
 ```
 python rak16000-power-monitoring.py
+```
+
+You will see the output as shown below with voltage and current readings, and also the calculated power consumption as well as Shunt voltage.
+
+```
+Bus Voltage: 3.360 V
+Bus Current: 0.000 mA
+Power: 0.000 mW
+Shunt voltage: 0.000 mV
+
+Bus Voltage: 3.348 V
+Bus Current: -0.098 mA
+Power: 0.000 mW
+Shunt voltage: 0.000 mV
+
+Bus Voltage: 3.348 V
+Bus Current: 0.000 mA
+Power: 0.000 mW
+Shunt voltage: 0.000 mV
 ```
 
 After that you can leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.

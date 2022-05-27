@@ -6,17 +6,14 @@ A collection of examples to interface [WisBlock](https://github.com/RAKWireless/
 
 To be able to use the WisBlock module, the hardware must match the WisBlock form factor. Right now, RAKwireless provides two devices to support the WisBlock module for the Raspberry Pi platform. 
 
-## RAK7391
+*   RAK7391
 
-RAK7391 is a powerful CM4 extension board. There are two WisBlock I/O connectors on the board already. Users can connect the WisBlock I/O module with RAK7391 directly. 
+    RAK7391 is a powerful CM4 extension board. There are two WisBlock I/O connectors on the board already. Users can connect the WisBlock I/O module with RAK7391 directly. 
 
-## RAK6421
+* RAK6421
 
-RAK6421 is a Pi HAT board that includes the WisBlock connector. Users can put the WisBlock module on the Pi HAT and plug it on the Raspberry Pi board. 
+    RAK6421 is a Pi HAT board that includes the WisBlock connector. Users can put the WisBlock module on the Pi HAT and plug it on the Raspberry Pi board. 
 
-## Copyright and license
-
-Copyright (c) 2022 RAKwireless, under MIT License.
 
 # Examples
 
@@ -37,8 +34,6 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK16001 ADC Module](/interface/rak16001)
     * [RAK17000 Motor Driver](/interface/rak17000)
 * RAK7391
-RAK14006
-Rotary Input
 
     * [ads1115  16-Bit ADC](/rak7391/ads1115)
     * [atecc608 Secure Element](/rak7391/atecc608)
@@ -61,5 +56,9 @@ Rotary Input
     * [RAK16000 DC Current Sensor](/sensors/rak16000)
 * Wireless
     * [RAK13300 SX1262 LPWAN Module](/wireless/rak13300)
+
+## Copyright and license
+
+Copyright (c) 2022 RAKwireless, under MIT License.
 
 

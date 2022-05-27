@@ -75,5 +75,12 @@ Once installed you can run the example by typing:
 ```
 python rak16001_read.py
 ```
-
+Now you can read the value of analog input:
+```
+Digital value of analog input : 0.00 V
+Digital value of analog input : 0.00 V
+Digital value of analog input : 3.30 V
+Digital value of analog input : 3.30 V
+Digital value of analog input : 0.00 V
+```
 After that you can leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.
