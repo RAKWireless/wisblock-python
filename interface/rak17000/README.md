@@ -22,7 +22,7 @@ There are multiple hardware options to mount RAK17000:
 - RAK7391 WisGate Developer Connect +  RAK6421 WisBlock Hat + RAK17000
 - RAK7391 WisGate Developer Connect + RAK17000
 
-The RAK17000 can be connected to the IO slot on the RAK6421 Pi Hat, and RAK6421 Pi Hat can be mounted to Raspberry Pi or RAK7391 through GPIO 40-pin headers,  you can also mount RAK13004 to WisBlock Connector on the RAK7391 directly. You also need two DC motors or one stepper motor.
+The RAK17000 can be connected to the IO slot on the RAK6421 Pi Hat, and RAK6421 Pi Hat can be mounted to Raspberry Pi or RAK7391 through GPIO 40-pin headers,  you can also mount RAK17000 to WisBlock Connector on the RAK7391 directly. You also need two DC motors or one stepper motor.
 
 ### 2.2. Connection diagram
 
