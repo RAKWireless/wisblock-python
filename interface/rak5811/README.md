@@ -31,7 +31,7 @@ The RAK5811 can be connected to the IO slot on the RAK6421 Pi Hat, and RAK6421 P
 
 There are two  analog input ports (`AIN0` and `AIN1`) on the RAK5811, you can use them as long as your sensors operate at 5 v.
 
-<img src="C:\Users\xikai\Desktop\assets\setup.png" alt="setup" style="zoom:75%;" />
+<img src="assets/setup.png" alt="setup" style="zoom:75%;" />
 
 ## 3. Software
 

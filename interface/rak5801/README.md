@@ -10,11 +10,11 @@ This guide explains how to use the [WisBlock IO RAK5801](https://store.rakwirele
 
 The RAK5801 is a 4-20 mA current loop extension module that allows you to make an IoT solution for analog sensors with 4-20 mA interface. This module converts the 4-20 mA current signal into voltage range supported by the **ADS1115**  for further digitalization and data transmission.  For more information about RAK5801, refer to the [RAK5801 datasheet](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK5801/Datasheet/).
 
+<img src="assets/RAK5801.png" alt="RAK5801" style="zoom: 33%;" />
+
 ### 1.2. ADS1115
 
 ADS1115 is a high recision16-bit ADC with 4 channels. it have a programmable gain from 2/3x to 16x so you can amplify small signals and read them with higher precision. Refer to datasheet for more information : [ADS1115 datasheet](https://cdn-shop.adafruit.com/datasheets/ads1115.pdf).
-
-<img src="assets/RAK5801.png" alt="RAK5801" style="zoom: 33%;" />
 
 ## 2.Hardware
 
@@ -31,7 +31,7 @@ The RAK5801 can be connected to the IO slot on the RAK6421 Pi Hat, and RAK6421 P
 
 There are two  analog input ports (`AIN0` and `AIN1`) on the RAK5801, but only `AIN1` is available now.  You can use it as long as your sensors operate at 3.3 V or 12 V with 4-20 mA operating current.
 
-<img src="C:\Users\xikai\Desktop\assets\setup.jpg" alt="setup" style="zoom:50%;" />
+<img src="assets/setup.jpg" alt="setup" style="zoom:50%;" />
 
 ## 3. Software
 
