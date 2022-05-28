@@ -1,4 +1,4 @@
-# Measuring  gas concentration using WisBlock sensor RAK12004
+# Measuring gas concentration using WisBlock sensor RAK12009
 
 [TOC]
 
