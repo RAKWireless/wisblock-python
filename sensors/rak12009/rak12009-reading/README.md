@@ -33,7 +33,7 @@ In this example, we will select first option, we use RAK12009 in combination wit
 
 ## 3. Software
 
-The example code can be found in the [rak12009-reading.py](rak12009-reading/rak12009-reading.py) file. In order to run this， you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create an isolated environment. To install `virtualenv` you just have to:
+The example code can be found in the [rak12009-reading.py](rak12009-reading.py) file. In order to run this， you will first have to install some required modules. The recommended way to do this is to use [virtualenv](https://virtualenv.pypa.io/en/latest/) to create an isolated environment. To install `virtualenv` you just have to:
 
 ```
 sudo apt install virtualenv
