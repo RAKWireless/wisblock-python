@@ -12,7 +12,7 @@ The RAK12004 is a gas sensor module, part of the RAKWireless WisBlock Sensor ser
 
 ### 1.2. MQ-2
 
-The MQ-2 Gas sensor can detect or measure gasses like LPG, Alcohol, Propane, Hydrogen, CO, and even methane. for more details, you can refer to [MQ-2 datasheet](http://www.china-total.com/Product/meter/gas-sensor/MQ-2.pdf).
+The MQ-2 Gas sensor can detect or measure gasses like LPG, Alcohol, Propane, Hydrogen, CO, and even methane. for more details, you can refer to [MQ-2 datasheet](docs/MQ-2.pdf).
 
 ## 2. Hardware
 
