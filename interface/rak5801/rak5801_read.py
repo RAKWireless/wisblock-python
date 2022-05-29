@@ -15,24 +15,20 @@ import gpiod
 GAIN = 1
 SAMPLE_NUM = 32
 
-# AIN0 cannot be used as an analog input channel by default
+# RAK6421 IO Slot#1: CHIP_NUM = 0, AIN1 = 1, ENABLE_PIN = 17
+# RAK6421 IO Slot#2: CHIP_NUM = 0, AIN1 = 3, ENABLE_PIN = 25
+# RAK7391 IO Slot#1: CHIP_NUM = 2, AIN1 = 1, ENABLE_PIN = 1
+# RAK7391 IO Slot#2: CHIP_NUM = 2, AIN1 = 3, ENABLE_PIN = 9
 
-# WisBlock Slot#1: AIN0 = 0, AIN1 = 1, ENABLE_PIN = 17
-# WisBlock Slot#2: AIN0 = 2, AIN1 = 3, ENABLE_PIN = 25
-
-# RAK7391 IO Slot#1: AIN0 = 0, AIN1 = 1, ENABLE_PIN = 13
-# RAK7391 IO Slot#2: AIN0 = 2, AIN1 = 3, ENABLE_PIN = 14
-
-
-AIN0 = 0
+CHIP_NUM = 2
 AIN1 = 1
-ENABLE_PIN = 17
+ENABLE_PIN = 1
 
 # set enable pin to high
 #
 # If RAK5801 is connected to the native 40-pin header, chip = gpiod.chip(0); If RAK5801 is connected to a GPIO
 # expander, use "gpiodetect" to find the gpio expander's gpiochip number, for example, chip = gpiod.chip(2)
-chip = gpiod.chip(0)
+chip = gpiod.chip(CHIP_NUM)
 line = chip.get_line(ENABLE_PIN)
 config = gpiod.line_request()
 config.request_type = gpiod.line_request.DIRECTION_OUTPUT

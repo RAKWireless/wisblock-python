@@ -14,15 +14,19 @@ import gpiod
 
 
 GAIN = 1
-# WisBlock Slot#1: AIN0 = 0, AIN1 = 1
-# WisBlock Slot#2: AIN0 = 2, AIN1 = 3
-AIN0 = 0
-AIN1 = 1
 SAMPLE_NUM = 32
-ENABLE_PIN = 14
+
+# RAK6421 IO Slot#1: CHIP_NUM = 0, AIN1 = 1, ENABLE_PIN = 17
+# RAK6421 IO Slot#2: CHIP_NUM = 0, AIN1 = 3, ENABLE_PIN = 25
+# RAK7391 IO Slot#1: CHIP_NUM = 2, AIN1 = 1, ENABLE_PIN = 1
+# RAK7391 IO Slot#2: CHIP_NUM = 2, AIN1 = 3, ENABLE_PIN = 9
+
+CHIP_NUM = 2
+AIN1 = 1
+ENABLE_PIN = 1
 
 # set rak5811 enable pin to high
-chip = gpiod.chip(2)
+chip = gpiod.chip(CHIP_NUM)
 line = chip.get_line(ENABLE_PIN)
 config = gpiod.line_request()
 config.request_type = gpiod.line_request.DIRECTION_OUTPUT
@@ -38,8 +42,8 @@ try:
 	while True:
 		total = 0
 		for i in range(0,SAMPLE_NUM):
-			# read rak5801 analog input 0
-			value = adc.read_adc(AIN0, gain=GAIN)
+			# read rak5811 analog input 1
+			value = adc.read_adc(AIN1, gain=GAIN)
 			total += value
 		raw = total / SAMPLE_NUM
 		"""
