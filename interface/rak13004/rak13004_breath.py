@@ -11,9 +11,9 @@ import gpiod
 import Adafruit_PCA9685	
 
 #RAK7391 WisBlock IO Slot#1: CHIP_NUM = 2, OE_PIN = 6
-#RAK7391 WisBlock IO Slot#1: CHIP_NUM = 2, OE_PIN = 14
+#RAK7391 WisBlock IO Slot#2: CHIP_NUM = 2, OE_PIN = 14
 #RAK6421 IO Slot#1: CHIP_NUM = 0, OE_PIN = 12
-#RAK6421 IO Slot#1: CHIP_NUM = 0, OE_PIN = 22
+#RAK6421 IO Slot#2: CHIP_NUM = 0, OE_PIN = 22
 
 CHIP_NUM = 2
 OE_PIN = 6
