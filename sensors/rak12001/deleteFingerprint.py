@@ -14,7 +14,7 @@ import time
 
 ## Tries to initialize the sensor
 try:
-    f = PyFingerprint('/dev/ttyS0', 57600, 0xFFFFFFFF, 0x00000000)
+    f = PyFingerprint('/dev/ttyAMA0', 57600, 0xFFFFFFFF, 0x00000000)
 
     if ( f.verifyPassword() == False ):
         raise ValueError('The given fingerprint sensor password is wrong!')

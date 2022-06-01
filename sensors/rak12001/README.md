@@ -42,15 +42,16 @@ We use slot A of RAK6421, so before test we  must add the line bellow to `/boot/
 
 ```
 enable_uart=1
+dtoverlay=pi3-miniuart-bt
 ```
 If you use raspberryPi OS, you should make sure there is no configuration about serial0 in `/boot/cmdline.tx`.
 ![](assets/image-cmdline.png)
 
 Then reboot RAK7391.
 
-After reboot,  we can see there is a serial port named `/dev/ttyS0`.
+After reboot,  we can see there is a serial port named `/dev/ttyAMA0`.
 
-![image-20220429120826702](assets/image-20220429120826702.png)
+![](assets/image-serial-port.png)
 
 Now Let's use examples to test RAK12001.
 

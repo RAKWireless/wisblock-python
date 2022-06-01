@@ -17,7 +17,7 @@ import gpiod
 from datetime import timedelta
 
 ## set interrput pin
-OUT_PIN = 6 
+OUT_PIN = 6
 chip = gpiod.chip(0)
 out_line = chip.get_line(OUT_PIN)
 config = gpiod.line_request()
@@ -26,7 +26,7 @@ out_line.request(config)
 
 ## Tries to initialize the sensor
 try:
-    f = PyFingerprint('/dev/ttyS0', 57600, 0xFFFFFFFF, 0x00000000)
+    f = PyFingerprint('/dev/ttyAMA0', 57600, 0xFFFFFFFF, 0x00000000)
     if ( f.verifyPassword() == False ):
         raise ValueError('The given fingerprint sensor password is wrong!')
 
@@ -66,7 +66,7 @@ try:
                             print('Please move out your finger from sensor.\n')
                             while out_line.get_value() == 0:
                                 time.sleep(1)
-                                
+
                             print('Waiting for the same finger again...\n')
                             while out_line.get_value() == 1:
                                 time.sleep(1)
@@ -93,7 +93,7 @@ try:
                                 print('Please move out your finger from sensor.')
                                 time.sleep(2)
                             print('\nEnroll another finger or click ctrl+c to exit.\n')
-                        
+
                     except Exception as e:
                         print('Operation failed!')
                         print('Exception message: ' + str(e))

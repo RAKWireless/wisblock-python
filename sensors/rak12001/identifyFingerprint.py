@@ -16,7 +16,7 @@ from datetime import timedelta
 import time
 
 ## set interrput pin
-OUT_PIN = 6 
+OUT_PIN = 6
 chip = gpiod.chip(0)
 out_line = chip.get_line(OUT_PIN)
 config = gpiod.line_request()
@@ -25,7 +25,7 @@ out_line.request(config)
 
 ## Tries to initialize the sensor
 try:
-    f = PyFingerprint('/dev/ttyS0', 57600, 0xFFFFFFFF, 0x00000000)
+    f = PyFingerprint('/dev/ttyAMA0', 57600, 0xFFFFFFFF, 0x00000000)
     if ( f.verifyPassword() == False ):
         raise ValueError('The given fingerprint sensor password is wrong!')
 
@@ -63,7 +63,7 @@ try:
                             print('No match found!\n')
                         else:
                             print('Found template at position #' + str(positionNumber))
-                            print('The accuracy score is: ' + str(accuracyScore)) 
+                            print('The accuracy score is: ' + str(accuracyScore))
                             print()
                     except Exception as e:
                         print('Operation failed!')
