@@ -79,6 +79,7 @@ class ADC121C021:
             tmp = tmp | REG_CONFIG_ALERT_FLAG_NOCLEAR
         else:
             tmp = tmp | REG_CONFIG_ALERT_HOLD_CLEAR
+        self._bus.write_byte_data(self._addr, REG_CONFIGURATION, tmp)
         
 
     def read_alert_hold(self):

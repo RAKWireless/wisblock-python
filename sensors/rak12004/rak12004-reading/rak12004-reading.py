@@ -16,6 +16,7 @@ I2C_BUS = 0x1
 I2C_ADDRESS = 0x51
 VOLTAGE_REF = 5
 RL = 10
+R0 = 11.2
 RATIO_AIR = 9.6
 SMOKE_SLOPE = -0.399
 SMOKE_INTERCEPT_Y = 1.45
@@ -98,12 +99,16 @@ time.sleep(0.5)
 
 adc = ADC121C021(bus=I2C_BUS, addr=I2C_ADDRESS)
 adc.config_cycle_time(CYCLE_TIME_32)
-#Before you measure gas concentration, you must calibrate RO in your environment. 
-ro = calibrate_Ro(adc, RATIO_AIR)
+
+#Before you measure gas concentration, you can calibrate RO in your environment.
+#call the function 'calibrate_Ro' separately, just calibrate R0 first time and 
+#then R0 should be know as a constand. 
+
+#R0 = calibrate_Ro(adc, RATIO_AIR)
 
 try:
     while True:
-        ppm = calculate_ppm(adc, ro, SMOKE_INTERCEPT_Y, SMOKE_SLOPE)
+        ppm = calculate_ppm(adc, RO, SMOKE_INTERCEPT_Y, SMOKE_SLOPE)
         print("ppm: {:.2f}".format(ppm))
         time.sleep(1)
 except KeyboardInterrupt:

@@ -11,8 +11,10 @@ __maintainer__ = "rakwireless.com"
 import time
 import gpiod
 
-# Pi Hat: CHIP_NUM = 0, Slot#1: DO_PIN = 16, Slot#2: DO_PIN = 24
-# WisBlock: CHIP_NUM =2, Slot#1: DO_PIN = 4, Slot#2: DO_PIN = 12 
+# RAK6421: CHIP_NUM = 0, IO Slot#1: DO_PIN = 16
+# RAK6421: CHIP_NUM = 0, IO Slot#2: DO_PIN = 24
+# RAK7391: CHIP_NUM = 2, WisBlock Slot#1: DO_PIN = 4
+# RAK7391: CHIP_NUM = 2, WisBlock Slot#2: DO_PIN = 12
 CHIP_NUM = 0
 DO_PIN = 16
 

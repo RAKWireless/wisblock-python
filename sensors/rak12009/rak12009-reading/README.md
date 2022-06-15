@@ -1,4 +1,4 @@
-# Measuring  gas concentration using WisBlock sensor RAK12004
+# Measuring gas concentration using WisBlock sensor RAK12009
 
 [TOC]
 
@@ -46,7 +46,7 @@ virtualenv .env
 source .env/bin/activate
 ```
 
-Once installed, you also need to install python library `rakmq`,   `rakmq` is developed specially for RAK's MQ-x sensors, you can get source code and install it from our gitlib repository : https://git.rak-internal.net/product-rd/gateway/wis-developer/rak7391/wisblock-python/-/tree/dev/libraries/rakmq. others required library can be installed by typing:
+Install required libraries.
 
 ```
 pip install -r requirements.txt
