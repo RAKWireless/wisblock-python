@@ -65,7 +65,7 @@ pip install -r requirements.txt
 Once installed you can run the example by typing:
 
 ```
-python rak2006-PIR.py
+python rak12006-PIR.py
 ```
 
 After that you can leave the virtual environment by typing `deactivate`. To activate the virtual environment again you just have to `source .env/bin/activate` and run the script. No need to install the dependencies again since they will be already installed in the virtual environment.
