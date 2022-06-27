@@ -4,7 +4,7 @@
 
 ## 1.Introduction
 
-This guide explains how to use the [RAK13003 WisBlock IO Expansion Module](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK12019/Overview/) in combination with RAK6421 Wisblock Hat or RAK7391 to add 16 extra bidirectional I/O ports. 
+This guide explains how to use the [RAK13003 WisBlock IO Expansion Module](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13003/Overview/) in combination with RAK6421 Wisblock Hat or RAK7391 to add 16 extra bidirectional I/O ports. 
 
 ### 1.1. RAK13003 & MCP23017
 
