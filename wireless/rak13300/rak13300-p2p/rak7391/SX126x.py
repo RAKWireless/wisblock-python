@@ -400,7 +400,7 @@ class SX126x :
         if txen != -1 : gpio.setup(txen, gpio.OUT)
         if rxen != -1 : gpio.setup(rxen, gpio.OUT)
         '''
-        self._chip = gpiod.chip(2)
+        self._chip = gpiod.chip(3)
         self._resetLine =self._chip.get_line(reset)
         self._busyLine = self._chip.get_line(busy)
 
