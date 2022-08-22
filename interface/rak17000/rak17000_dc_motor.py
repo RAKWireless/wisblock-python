@@ -18,7 +18,7 @@ AIN1 = 11
 AIN2 = 7
 
 # set nsleep pin to High
-chip = gpiod.chip(2)
+chip = gpiod.chip(3)
 nsleep = chip.get_line(NSLEEP)
 config = gpiod.line_request()
 config.request_type = gpiod.line_request.DIRECTION_OUTPUT

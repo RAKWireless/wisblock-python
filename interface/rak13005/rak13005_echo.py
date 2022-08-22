@@ -14,11 +14,11 @@ from smbus2 import SMBus
 import numpy
 import gpiod
 
-# RAK7301 WisBlock IO Slot#1: CHIP_NUM = 2, WK_PIN = 5, EN = 6
-# RAK7391 WisBlock IO Slot#2: CHIP_NUM = 2, WK_PIN = 13, EN = 14
+# RAK7301 WisBlock IO Slot#1: CHIP_NUM = 3, WK_PIN = 5, EN = 6
+# RAK7391 WisBlock IO Slot#2: CHIP_NUM = 3, WK_PIN = 13, EN = 14
 # RAK6421 IO Slot#1: CHIP_NUM = 0, WK_PIN = 6, EN = 12
 # RAK6421 IO Slot#2: CHIP_NUM = 0, WK_PIN = 21, EN = 22
-CHIP_NUM = 2
+CHIP_NUM = 3
 WK_PIN = 13
 EN_PIN = 14
 

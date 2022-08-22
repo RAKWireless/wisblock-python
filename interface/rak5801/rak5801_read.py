@@ -17,10 +17,10 @@ SAMPLE_NUM = 32
 
 # RAK6421 IO Slot#1: CHIP_NUM = 0, AIN1 = 1, ENABLE_PIN = 17
 # RAK6421 IO Slot#2: CHIP_NUM = 0, AIN1 = 3, ENABLE_PIN = 25
-# RAK7391 IO Slot#1: CHIP_NUM = 2, AIN1 = 1, ENABLE_PIN = 1
-# RAK7391 IO Slot#2: CHIP_NUM = 2, AIN1 = 3, ENABLE_PIN = 9
+# RAK7391 IO Slot#1: CHIP_NUM = 3, AIN1 = 1, ENABLE_PIN = 1
+# RAK7391 IO Slot#2: CHIP_NUM = 3, AIN1 = 3, ENABLE_PIN = 9
 
-CHIP_NUM = 2
+CHIP_NUM = 3
 AIN1 = 1
 ENABLE_PIN = 1
 
@@ -38,7 +38,7 @@ line.set_value(1)
 """
 reading rak5801 analog input via ads115 module 
 """
-adc = Adafruit_ADS1x15.ADS1115(address=0x48, busnum=1)
+adc = Adafruit_ADS1x15.ADS1115(address=0x4b, busnum=1)
 try:
     while True:
         total = 0
