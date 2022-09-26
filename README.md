@@ -28,6 +28,7 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK13001 Relay](/interface/rak13001)
     * [RAK13004 PWM Module](/interface/rak13004)
     * [RAK13005 LINbus Interface](/interface/rak13005)
+    * [RAK13006 CANbus Interface](/interface/rak13006)
     * [RAK13007 Relay IO Module](/interface/rak13007)  
     * [RAK13600 NFC Reader Module](/interface/rak13600)   
     * [RAK14006 Rotary Input](/interface/rak14006)   
