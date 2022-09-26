@@ -86,7 +86,7 @@ Before running the python script, we need to make some changes to the operating 
 
 ### 3.2. Master device software
 
-The master code sensor code can be found under the [rak5802_modbus_device](rak5802_modbus_device/rak5802_modbus_device.ino) folder. You need to upload the example script for the master devices to the core using Arduino IDE, the script is stored under the **RAK13006-MCP2518** folder. The library for the MCP2518 is included in the foleder, and you can open it directly with the Arduino IDE but you need to copy the whole folder to Arduino's **libraries** folder, so the library can be corrected included.
+The master code sensor code can be found under the [RAK13006-MCP2518](RAK13006-MCP2518/examples/RAK13006_CAN_Master/) folder. You need to upload the example script for the master devices to the core using Arduino IDE, the script is stored under the **RAK13006-MCP2518** folder. The library for the MCP2518 is included in the foleder, and you can open it directly with the Arduino IDE but you need to copy the whole folder to Arduino's **libraries** folder, so the library can be corrected included.
 
 ### 3.3. Run the example
 
