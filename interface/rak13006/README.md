@@ -1,14 +1,14 @@
-# Get started with use RAK13006 WisBlock CAN Bus module on RAK7391 with Python
+# Get started with RAK13006 WisBlock CAN Bus module using Python
 
 [TOC]
 
 ## 1.Introduction
 
-This guide explains how to use the [WisBlock IO RAK13006](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK3006/Overview/) CAN Bus module in combination with RAK6421 Wisblock Hat or RAK7391 WisGate Connect using Python. 
+This guide explains how to use the [WisBlock IO RAK13006](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13006/Overview/) CAN Bus module in combination with RAK6421 Wisblock Hat or RAK7391 WisGate Connect using Python. 
 
 ### 1.1 RAK13006
 
-**RAK13006** is a CAN Bus communication module which uses [MCP2518FD](https://www.microchip.com/en-us/product/MCP2518FD) CAN controller and [ATA6563](https://www.microchip.com/en-us/product/ata6563) CAN FD transceiver. It's ideal for automotive CAN application. It can be mounted to the IO slots on both RAK6421 Wisblock Hat and RAK7391 WisGate Connect. For more information about **RAK13006**, refer to the [Datasheet]([RAK14003 WisBlock LED Bar Graph Module Datasheet | RAKwireless Documentation Center](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13006/Datasheet/)).
+**RAK13006** is a CAN Bus communication module which uses [MCP2518FD](https://www.microchip.com/en-us/product/MCP2518FD) CAN controller and [ATA6563](https://www.microchip.com/en-us/product/ata6563) CAN FD transceiver. It's ideal for automotive CAN application. It can be mounted to the IO slots on both RAK6421 Wisblock Hat and RAK7391 WisGate Connect. For more information about **RAK13006**, refer to the [Datasheet](https://docs.rakwireless.com/Product-Categories/WisBlock/RAK13006/Datasheet/).
 
 ## 2.Hardware
 
