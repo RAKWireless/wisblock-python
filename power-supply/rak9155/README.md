@@ -12,7 +12,7 @@
 
 ### 2.1.Hardware requirements
 
-In this example we need a RAK5802 or RAK5802M and a RAK9155 Battery Plus, you will need two cables to connect them.
+In this example we need a RAK5802 or RAK5802M and a RAK9155 Battery Plus, you also need some cables to connect them.
 
 So here is the hardware requirements list:
 
@@ -22,13 +22,19 @@ So here is the hardware requirements list:
 
 - 1x RAK7391 Wisgate Connect
 
-- Two cables
+- Some cables
 
 ### 2.2. Connection diagram
 
-In this example we are using a RAK5802M as the master, mounted to the Wisblock #1 on the RAK7391 Wisgate Connect. The A_RX pin and B_TX pin on master should be connected to the corresponding pins on the Battery Plus.
+In this example we are using a RAK5802M as the master, mounted to the Wisblock #1 on the RAK7391 Wisgate Connect. The A_RX pin and B_TX pin on master should be connected to the corresponding pins on the Battery Plus, to power the RAK7391 board, you need to connect two power pins to RAK7391's power supply.
 
-<img src="assets/setup.jpg" alt="Connections" style="zoom: 67%;" />
+Here is the wiring schematics :
+
+
+
+<img src="assets/setup.PNG" alt="Connections" style="zoom: 67%;" />
+
+
 
 ## 3. Software
 
