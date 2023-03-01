@@ -32,7 +32,7 @@ Here is the wiring schematics :
 
 
 
-<img src="assets/setup.PNG" alt="Connections" style="zoom: 67%;" />
+<img src="assets/setup.png" alt="Connections" style="zoom: 67%;" />
 
 
 
