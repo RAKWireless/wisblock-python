@@ -1,1 +1,2 @@
 adafruit-circuitpython-lps2x==2.0.6
+RPi.GPIO==0.7.1
