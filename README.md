@@ -32,7 +32,7 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK13001 Relay](/interface/rak13001)
     * [RAK13003 IO Expansion Module](/interface/rak13003)
     * [RAK13004 PWM Module](/interface/rak13004)
-    * [RAK13005 LINbus Interface](/interface/rak13005)
+    * [RAK13005 LINbus Interface](/interface/rak13005)037
     * [RAK13006 CANbus Interface](/interface/rak13006)
     * [RAK13007 Relay IO Module](/interface/rak13007)  
     * [RAK14006 Rotary Input](/interface/rak14006)   
@@ -52,6 +52,7 @@ The repository structure follows that on the [RAKwireless store](https://store.r
     * [RAK12015 Vibration Sensor](/sensors/rak12015)
     * [RAK12019 UV Sensor](/sensors/rak12019)
     * [RAK12037 CO2 Sensor](/sensors/rak12037)
+    * [RAK12500 WisBlock GNSS Location Module](/sensors/rak12500)
     * [RAK16000 DC Current Sensor](/sensors/rak16000)
 
 * Wireless
@@ -70,6 +71,6 @@ The repository structure follows that on the [RAKwireless store](https://store.r
 
 ## Copyright and license
 
-Copyright (c) 2022 RAKwireless, under MIT License.
+Copyright (c) 2022-2025 RAKwireless, under MIT License.
 
 
