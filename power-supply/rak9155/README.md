@@ -16,13 +16,11 @@ In this example we need a RAK5802 or RAK5802M and a RAK9155 Battery Plus, you al
 
 So here is the hardware requirements list:
 
-- 1x RAK5802/RAK5802M
-
-- 1x RAK9155 Battery Plus
-
 - 1x RAK7391 Wisgate Connect
-
-- Some cables
+- 1x RAK5802/RAK5802M
+- 1x RAK9155 Battery Plus
+- 1x RAK9155 matching 4-pin male connector (LP-16-C04PE-02-001)
+- 2 cables for power (21 AWG or better recommended) and 2 cables data
 
 ### 2.2. Connection diagram
 
@@ -30,11 +28,23 @@ In this example we are using a RAK5802M as the master, mounted to the Wisblock #
 
 Here is the wiring schematics :
 
-
-
 <img src="assets/setup.png" alt="Connections" style="zoom: 67%;" />
 
+Wiring table:
 
+|Battery Plus Connector|Function|RAK7391|Colour|
+|---|---|---|---|
+|Pin1|12V|Phoenix Connector positive pin (the one further from the edge)|RED|
+|Pin2|GND|Phoenix Connector negative pin (the one closer to the edge)|YELLOW/GREEN|
+|Pin3|RS485A|RAK5802M A_RX pin|BROWN|
+|Pin4|RS485B|RAK5802M B_TX pin|BLUE|
+
+<img src="assets/phoenix_polarity.png" alt="Connections" style="zoom: 67%;" />
+
+> Notes: 
+> * Use the provided male headers for both the main board phoenix connector and the RAK5802M connector
+> * Calculate the cable length you will need to route all four cables before purchasing/preparing the cabling
+> * You can also procure the matching male connector for the RAK9155 with cable already in place
 
 ## 3. Software
 
