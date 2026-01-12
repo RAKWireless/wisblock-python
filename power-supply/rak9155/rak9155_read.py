@@ -34,7 +34,7 @@ while True:
     if response.registers[0] == 5:
         mode = "full charged"
     if response.registers[0] == 6:
-        mode = "epmty"
+        mode = "empty"
 
     # Read percentage of battery remaining
     remaining = client.read_holding_registers(REMAINING_CAP, 1, unit=DEVICE_ID)
